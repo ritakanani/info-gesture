@@ -38,18 +38,37 @@ function EventForm() {
         </div>
 
         <div class="new_event_location">
-          <label for="new_event_url">URL</label>
-          <input id="event_url" type="url" name="url" placeholder="URL"></input>
+          <label for="new_event_location">Location</label>
+          <select id="event_location" name="event_location">
+            <option value=""></option>
+            <option value="Toronto">Toronto</option>
+            <option value="York">York</option>
+            <option value="Etobicoke">Etobicoke</option>
+            <option value="Scarborough">Scarborough</option>
+            <option value="NorthYork">North York</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
 
         <div class="new_event_date">
-          <label for="new_event_url">Date</label>
-          <input id="event_url" type="url" name="url" placeholder="URL"></input>
+          <label for="new_event_time">Date</label>
+          <input
+            id="event_date"
+            type="date"
+            name="date"
+            min="2022-04-01T00:00"
+          ></input>
         </div>
 
         <div class="new_event_time">
-          <label for="new_event_url">Time</label>
-          <input id="event_url" type="url" name="url" placeholder="URL"></input>
+          <label for="new_event_time">Time</label>
+          <input
+            id="event_time"
+            type="time"
+            name="time"
+            min="8:00"
+            max="22:00"
+          ></input>
         </div>
 
         <button type="submit">Create</button>
