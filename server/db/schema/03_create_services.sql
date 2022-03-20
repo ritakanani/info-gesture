@@ -6,5 +6,6 @@ CREATE TABLE services (
   title VARCHAR(255) NOT NULL,
   category VARCHAR(255) NOT NULL,
   description TEXT,
-  url VARCHAR(255),
+  url VARCHAR(255)
 );
+
