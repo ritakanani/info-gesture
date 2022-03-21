@@ -8,32 +8,32 @@ const Service = () => {
       <div className='title-page'>
         <h1>Services</h1>
       </div>
-            
+
 
       <div className="row row-cols-1 row-cols-md-3 g-4 cards">
-          <div className="col full-card">
-            <div className="card">
-            <img src="images/government-resources.jpg" className="card-img-top" alt="government-resources"/>
+        <div className="col full-card">
+          <div className="card">
+            <img src="images/government-resources.jpg" className="card-img-top" alt="government-resources" />
             <div className="card-body">
               <h5 className="card-title">Government Resources</h5>
               <p className="card-text">At ServiceOntario you can get your driver’s licence, plate stickers, health cards, birth certificates, register a birth and more.</p>
               <a href="https://www.ontario.ca/page/serviceontario">Services for ontario</a>
             </div>
-            </div>
           </div>
+        </div>
         <div className="col  full-card">
           <div className="card">
-            <img src="images/education.jpg" className="card-img-top" alt="education"/>
+            <img src="images/education.jpg" className="card-img-top" alt="education" />
             <div className="card-body">
               <h5 className="card-title">Education</h5>
               <p className="card-text">People for Education is a unique organization in Canada: independent, non-partisan, and fuelled by a belief in the power and promise of public education.</p>
               <a href="https://peopleforeducation.ca/">Education Services</a>
             </div>
-            </div>
           </div>
+        </div>
         <div className="col  full-card">
           <div className="card">
-            <img src="images/jobs.jpg" className="card-img-top" alt="jobs" / >
+            <img src="images/jobs.jpg" className="card-img-top" alt="jobs" />
             <div className="card-body">
               <h5 className="card-title">Jobs</h5>
               <p className="card-text">Find a job or contract, explore skills and training, and find out about workplace standards and labour mobility.</p>
@@ -79,8 +79,13 @@ const Service = () => {
       </div>
 
 
+      <div className='card-list'>
+        <h3>Services List</h3>
 
-    </div> 
+     
+      </div>
+
+    </div>
   )
 }
 
