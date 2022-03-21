@@ -11,7 +11,7 @@ function ServiceForm() {
         <option value="Childcare">Childcare</option>
         <option value="Education">Education</option>
         <option value="Fitness">Fitness</option>
-        <option value="Food">Food</option>
+        <option value="Catering">Catering</option>
         <option value="Other">Other</option>
       </select>
 
@@ -35,6 +35,19 @@ function ServiceForm() {
             cols="30"
             rows="10"
           ></textarea>
+        </div>
+
+        <div class="new_service_location">
+          <label for="new_service_location">Location</label>
+          <select id="service_location" name="service_location">
+            <option value=""></option>
+            <option value="Toronto">Toronto</option>
+            <option value="York">York</option>
+            <option value="Etobicoke">Etobicoke</option>
+            <option value="Scarborough">Scarborough</option>
+            <option value="NorthYork">North York</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
 
         <div class="new_service_url">
