@@ -1,11 +1,11 @@
 .card-img-top {
-  height: 200px;  
+  height: 200px;
 }
 .full-card {
   border-radius: 25px;
 }
 .cards {
-  padding: 5% 10% 5% 10%;  
+  padding: 5% 10% 5% 10%;
 }
 .title-page {
   background-color: #801e3e;
@@ -18,10 +18,15 @@
   color: black;
   text-align: justify;
   height: 100%;
-  
-  box-shadow: 0 16px 28px 0 rgb(134 131 134 / 65%), 0 25px 55px 0 rgb(146 140 142 / 32%);
+
+  box-shadow: 0 16px 28px 0 rgb(134 131 134 / 65%),
+    0 25px 55px 0 rgb(146 140 142 / 32%);
 }
 
 .full-card :hover {
-  background-image: linear-gradient( 135deg, #956374 0%, rgba(113, 175, 175, 1) 100% );
+  background-image: linear-gradient(
+    135deg,
+    #956374 0%,
+    rgba(113, 175, 175, 1) 100%
+  );
 }
