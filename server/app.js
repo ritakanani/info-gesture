@@ -10,6 +10,7 @@ const db = require("./configs/db.config");
 
 // routes import
 const catsRoutes = require("./routes/catsRoutes");
+const eventsRoutes = require("./routes/eventsRoutes");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 
 // routes
 app.use("/cats", catsRoutes(db));
+app.use("/events", eventsRoutes(db));
 
 app.get("/", (req, res) => {
   res.json({ greetings: "hello world" });

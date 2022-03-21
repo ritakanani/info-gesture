@@ -1,11 +1,11 @@
-import Header from "./components/Layout/Header";
-import Footer from "./components/Layout/Footer";
+// import Header from "./components/Layout/Header";
+// import Footer from "./components/Layout/Footer";
 import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Footer />
+      {/* <Header />
+      <Footer /> */}
     </div>
   );
 }
