@@ -1,0 +1,14 @@
+.card-img-top {
+  height: 250px;
+  width: 100%;
+}
+.service-cart {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.card {
+  color: black;
+  text-align: justify;
+  height: 100%;
+  box-shadow: 0 16px 28px 0 rgb(134 131 134 / 65%), 0 25px 55px 0 rgb(146 140 142 / 32%);
+}
