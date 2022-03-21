@@ -9,7 +9,9 @@ const bodyParser = require("body-parser");
 const db = require("./configs/db.config");
 
 // routes import
+const usersRoutes = require("./routes/usersRoutes");
 const eventsRoutes = require("./routes/eventsRoutes");
+const servicesRoutes = require("./routes/servicesRoutes");
 
 const app = express();
 
@@ -18,7 +20,9 @@ app.use(morgan(ENVIROMENT));
 app.use(bodyParser.json());
 
 // routes
+app.use("/users", usersRoutes(db));
 app.use("/events", eventsRoutes(db));
+app.use("/services", servicesRoutes(db));
 
 app.get("/", (req, res) => {
   res.json({ greetings: "hello world" });
