@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Layout/Header";
 import Footer from "./Layout/Footer";
+import Login from "./Login";
 
 import Home from "./Home";
 import Services from "./Services";
@@ -13,12 +14,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
       </Routes>
-
       <Footer />
     </div>
   );
