@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Header from "./Layout/Header";
 import Footer from "./Layout/Footer";
 import Login from "./Login";
@@ -15,6 +15,14 @@ import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 
 function App() {
+  // const [event, setEvent] = useState();
+  useEffect(() => {
+    axios.get("/api/users").then((response) => {
+      console.log(response.data);
+    });
+    console.log("run");
+  }, []);
+
   return (
     <div className="App">
       <Header />

@@ -20,9 +20,9 @@ app.use(morgan(ENVIROMENT));
 app.use(bodyParser.json());
 
 // routes
-app.use("/users", usersRoutes(db));
-app.use("/events", eventsRoutes(db));
-app.use("/services", servicesRoutes(db));
+app.use("/api/users", usersRoutes(db));
+app.use("/api/events", eventsRoutes(db));
+app.use("/api/services", servicesRoutes(db));
 
 app.get("/", (req, res) => {
   res.json({ greetings: "hello world" });
