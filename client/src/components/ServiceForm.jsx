@@ -1,10 +1,6 @@
 import React from "react";
 
-<<<<<<< HEAD
 function ServiceForm() {
-=======
-const ServiceForm = () => {
->>>>>>> service-component
   return (
     <div>
       <label for="topic">What type of service are you providing?</label>
@@ -70,8 +66,4 @@ const ServiceForm = () => {
   );
 }
 
-<<<<<<< HEAD
 export default ServiceForm;
-=======
-export default ServiceForm;
->>>>>>> service-component
