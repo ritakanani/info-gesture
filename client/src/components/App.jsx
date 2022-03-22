@@ -15,14 +15,13 @@ import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 
 function App() {
-  // const [event, setEvent] = useState();
+  const [event, setEvent] = useState();
   useEffect(() => {
-    axios.get("/api/users")
+    axios.get("/api/events")
     .then((response) => {
-      console.log(response.data);
+      console.log(response.data[0]);
       
-    });
-    console.log("run");
+    });    
   }, []);
 
   return (
@@ -32,7 +31,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />
+        <Route path="/events" element={<Events event={setEvent}/>} />
         <Route path="/create-event" element={<EventForm />} />
         <Route path="/services" element={<Services />} />
         <Route path="/create-service" element={<ServiceForm />} />
