@@ -71,7 +71,7 @@ function EventForm() {
           ></input>
         </div>
 
-        <button type="submit">Create</button>
+        <button type="submit">Create Event</button>
       </form>
     </div>
   );
