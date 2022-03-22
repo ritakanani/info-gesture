@@ -1,6 +1,6 @@
 import React from 'react'
-import './Service.css'
-
+import './Service.scss'
+import { Button } from "react-bootstrap";
 const Service = () => {
 
   return (
@@ -79,10 +79,61 @@ const Service = () => {
       </div>
 
 
-      <div className='card-list'>
+      <div className='service-list'>
         <h3>Services List</h3>
 
-     
+        <div className="service">
+          <div className="service-image">
+            <img src="images/government-resources.jpg" className="card-img" alt="government-resources" />
+            <div className="service-text">
+              <h5 className="card-title">Employment Services</h5>
+              <p className="card-text">Peterborough</p>
+              <div className='chat-button'>
+               <Button variant="info">Chat</Button>
+               <i class="fa fa-heart" aria-hidden="true"></i>
+              </div>           
+             
+            </div>
+          </div>
+        </div>  
+        <div className="service">
+          <div className="service-image">
+            <img src="images/government-resources.jpg" className="card-img" alt="government-resources" />
+            <div className="service-text">
+              <h5 className="card-title">Meal delivery services</h5>
+              <p className="card-text">Toronto</p>
+              <div className='chat-button'>
+               <Button variant="info">Chat</Button>
+               <i class="fa fa-heart" aria-hidden="true"></i>
+              </div>           
+             
+            </div>
+          </div>
+        </div>  
+
+        <div className="service">
+          <div className="service-image">
+            <img src="images/government-resources.jpg" className="card-img" alt="government-resources" />
+            <div className="service-text">
+              <h5 className="card-title">Law and safety</h5>
+              <p className="card-text">Alberta</p>
+              <div className='chat-button'>
+               <Button variant="info">Chat</Button>
+               <i class="fa fa-heart" aria-hidden="true"></i>
+              </div>           
+             
+            </div>
+          </div>
+        </div>  
+ 
+ 
+ 
+      </div>
+
+      <div className='contact-tag'>
+        <h3>Community Contact </h3>
+        <i class="fa fa-phone-square button-icon-left"></i>Phone: 512-842-1111   
+        <i class="fa fa-phone-square button-icon-left"></i>Email: info@community.com
       </div>
 
     </div>

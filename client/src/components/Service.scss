@@ -25,3 +25,31 @@
 .full-card :hover {
   background-image: linear-gradient( 135deg, #956374 0%, rgba(113, 175, 175, 1) 100% );
 }
+.card-img {
+  width: 80px;
+  border-radius: 45px;
+  height: 80px;
+}
+.service-image {
+  display: flex;
+}
+.contact-tag {
+  background: #f7f7f7;
+    margin-left: 160px;
+    width: 80%;
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.service-list {
+  width: 70%;
+  margin-left: 160px;
+}
+.service-text {
+  margin-left: 20px;
+}
+.chat-button {
+  width: fit-content;
+  float: right;
+  display: flex;
+}

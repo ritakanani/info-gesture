@@ -1,39 +1,82 @@
-import React from 'react'
-
+import React from "react";
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
-const Header = (props) => {
+
+import "./Header.scss";
+
+export default function Header(props) {
   return (
-  <nav bg="light" expand="lg">
-  <div className="container">
-    <nav href="#home">React-Bootstrap</nav>
-    <nav aria-controls="basic-nav-nav" />
-    <nav id="basic-nav-nav">
-    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-      <li className="nav-item">
-          <a className="nav-link" href="/home">Home</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/link">Link</a>
-        </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a className="dropdown-item" href="/">Action</a></li>
-            <li><a className="dropdown-item" href="/">Another action</a></li>
-            <li><a className="dropdown-item" href="/">Something else here</a></li>
-          </ul>
-          <li className="nav-item">
-          <Link to="/services"> Services</Link>
-         </li>
+    <>
+       <Container fluid className="d-flex justify-content-end my-1">
+        <Link className="nav-menu mr-1" to="/login">
+          Login
+        </Link>
+        
+        <Link className="nav-menu text-light bg-secondary rounded-pill px-1" to="/register">
+          Register
+        </Link>
+      </Container>
+      <Navbar bg="light" expand="lg" className="py-4 border mb-5">
+        <Container fluid>
+          <Navbar.Brand className="nav-logo" href="#">
+            Info Gesture
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll" className="nav-menu">
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
+            ></Nav>
+            <Container className="d-flex justify-content-end">
+              <div className="d-flex">
+                <Nav.Link>
+                  <Link className="nav-menu" to="/">
+                    Home
+                  </Link>
+                </Nav.Link>
+                <NavDropdown title="Events" id="navbarScrollingDropdown">
+                  <NavDropdown.Item href="#action3">Events</NavDropdown.Item>
+                  <NavDropdown.Item href="#action4">
+                    Another action
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action5">
+                    Something else here
+                  </NavDropdown.Item>
+                </NavDropdown>
 
-        </li>
-      </ul>
-    </nav>
-  </div>
-</nav>
-  )
+                <NavDropdown title="Services" id="navbarScrollingDropdown">
+                  <NavDropdown.Item href="/services">Services</NavDropdown.Item>    
+                  <NavDropdown.Item href="/create-service">Service Form</NavDropdown.Item> 
+               </NavDropdown>
+                {/* <Nav.Link>
+                  <Link className="nav-menu" to="/services">
+                    Services
+                  </Link>
+                </Nav.Link> */}
+              </div>
+            </Container>
+            <Form className="d-flex">
+              <FormControl
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Location</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>
+  );
 }
-
-export default Header;
