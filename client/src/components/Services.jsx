@@ -1,7 +1,7 @@
 import React from 'react'
-import './Service.scss'
+import './Services.scss'
 import { Button } from "react-bootstrap";
-const Service = () => {
+const Services = () => {
 
   return (
     <div className='service'>
@@ -141,4 +141,4 @@ const Service = () => {
 }
 
 
-export default Service;
+export default Services;
