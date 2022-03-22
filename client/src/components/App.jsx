@@ -1,19 +1,30 @@
-import Header from './Layout/Header';
-import Footer from './Layout/Footer';
-import Login from './Login';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Header from "./Layout/Header";
+import Footer from "./Layout/Footer";
+import Login from "./Login";
 
-import Home from './Home';
-import Events from './Events';
-import EventForm from './EventForm';
-import Services from './Services';
-import ServiceForm from './ServiceForm';
+import Home from "./Home";
+import Events from "./Events";
+import EventForm from "./EventForm";
+import Services from "./Services";
+import ServiceForm from "./ServiceForm";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
-import './App.scss';
-
+import "./App.scss";
 
 function App() {
+  // const [event, setEvent] = useState();
+  useEffect(() => {
+    axios.get("/api/users")
+    .then((response) => {
+      console.log(response.data);
+      
+    });
+    console.log("run");
+  }, []);
+
   return (
     <div className="App">
       <Header />
@@ -26,11 +37,9 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/create-service" element={<ServiceForm />} />
       </Routes>
-    
-      
-     
+
       <Footer />
-    </div> 
+    </div>
   );
 }
 
