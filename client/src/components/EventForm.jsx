@@ -1,6 +1,6 @@
 import React from "react";
 
-const EventForm = () => {
+function EventForm() {
   return (
     <div>
       <label for="topic">What type of event are you creating?</label>

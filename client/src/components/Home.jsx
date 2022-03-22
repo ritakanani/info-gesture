@@ -7,7 +7,6 @@ import "./Home.scss";
 export default function Home(props) {
   return (
     <>
-      
       <Container className="main-title mb-5">
         <h2 className="fw-bold">Friendly Events & Services</h2>
       </Container>

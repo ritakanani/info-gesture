@@ -1,6 +1,6 @@
 import React from "react";
 
-const ServiceForm = () => {
+function ServiceForm() {
   return (
     <div>
       <label for="topic">What type of service are you providing?</label>

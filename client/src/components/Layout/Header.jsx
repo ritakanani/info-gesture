@@ -15,11 +15,11 @@ import "./Header.scss";
 export default function Header(props) {
   return (
     <>
-       <Container fluid className="d-flex justify-content-end my-1">
+      <Container fluid className="d-flex justify-content-end my-1">
         <Link className="nav-menu mr-1" to="/login">
           Login
         </Link>
-        
+        <span className="mr-1">|</span>
         <Link className="nav-menu text-light bg-secondary rounded-pill px-1" to="/register">
           Register
         </Link>
@@ -47,16 +47,11 @@ export default function Header(props) {
                   <NavDropdown.Item href="/events">Events</NavDropdown.Item>    
                   <NavDropdown.Item href="/create-event">Event Form</NavDropdown.Item> 
                 </NavDropdown>
-
-                <NavDropdown title="Services" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="/services">Services</NavDropdown.Item>    
-                  <NavDropdown.Item href="/create-service">Service Form</NavDropdown.Item> 
-               </NavDropdown>
-                {/* <Nav.Link>
+                <Nav.Link>
                   <Link className="nav-menu" to="/services">
                     Services
                   </Link>
-                </Nav.Link> */}
+                </Nav.Link>
               </div>
             </Container>
             <Form className="d-flex">
