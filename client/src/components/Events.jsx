@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 
+
+
 const Events = (props) => {
+  const [event, setEvent] = useState();
+
+  useEffect(() => {
+    axios.get("/api/events")
+    .then((response) => {      
+      setEvent(response.data)      
+      console.log("run", response.data[4]);
+    });    
+  }, []);
+
+
+
+
   return (
     <>
-      <div>Event</div>
+      <div>Event</div>      
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src="" />
         <Card.Body>
-          <Card.Title>Event Title</Card.Title>
+          <Card.Title>{event.title}</Card.Title>
           <Card.Text>
             March 22, 2022 •Toronto
           </Card.Text>          
