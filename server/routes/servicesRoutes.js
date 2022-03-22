@@ -11,3 +11,11 @@ module.exports = (db) => {
   });
   return router;
 };
+
+app.get("services/new", (req, res) => {
+  console.log(res.body);
+});
+
+app.post("services/new", (req, res) => {
+  console.log(res.body);
+});
