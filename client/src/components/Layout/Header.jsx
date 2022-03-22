@@ -47,11 +47,10 @@ export default function Header(props) {
                   <NavDropdown.Item href="/events">Events</NavDropdown.Item>    
                   <NavDropdown.Item href="/create-event">Event Form</NavDropdown.Item> 
                 </NavDropdown>
-                <Nav.Link>
-                  <Link className="nav-menu" to="/services">
-                    Services
-                  </Link>
-                </Nav.Link>
+                <NavDropdown title="Services" id="navbarScrollingDropdown">
+                  <NavDropdown.Item href="/services">Services</NavDropdown.Item>    
+                  <NavDropdown.Item href="/create-service">Service Form</NavDropdown.Item> 
+                </NavDropdown>
               </div>
             </Container>
             <Form className="d-flex">
