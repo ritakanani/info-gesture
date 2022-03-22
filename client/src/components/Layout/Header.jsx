@@ -15,6 +15,15 @@ import "./Header.scss";
 export default function Header(props) {
   return (
     <>
+      <Container fluid className="d-flex justify-content-end my-1">
+        <Link className="nav-menu mr-1" to="/login">
+          Login
+        </Link>
+        <span className="mr-1">|</span>
+        <Link className="nav-menu text-light bg-secondary rounded-pill px-1" to="/register">
+          Register
+        </Link>
+      </Container>
       <Navbar bg="light" expand="lg" className="py-4 border mb-5">
         <Container fluid>
           <Navbar.Brand className="nav-logo" href="#">
