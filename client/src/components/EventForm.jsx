@@ -15,7 +15,7 @@ function EventForm() {
         <option value="Other">Other</option>
       </select>
 
-      <form method="post">
+      <form action="/events/new" method="post">
         <div class="new_event_title">
           <label for="new_event_title">Title</label>
           <input
@@ -78,14 +78,3 @@ function EventForm() {
 }
 
 export default EventForm;
-
-// CREATE TABLE events (
-//   id SERIAL PRIMARY KEY NOT NULL,
-//   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-//   title VARCHAR(255) NOT NULL,
-//   category VARCHAR(255) NOT NULL,
-//   description TEXT,
-//   location VARCHAR(255) NOT NULL,
-//   date DATE,
-//   time TIME
-// );

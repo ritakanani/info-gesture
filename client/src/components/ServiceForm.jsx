@@ -15,7 +15,7 @@ function ServiceForm() {
         <option value="Other">Other</option>
       </select>
 
-      <form method="post">
+      <form action="/services/new" method="post">
         <div class="new_service_title">
           <label for="new_service_title">Title</label>
           <input
