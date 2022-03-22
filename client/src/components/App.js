@@ -1,10 +1,10 @@
-import Header from './components/Layout/Header';
-import Footer from './components/Layout/Footer';
-import Login from './components/Login';
+import Header from './Layout/Header';
+import Footer from './Layout/Footer';
+import Login from './Login';
 
-import Home from './components/Home';
-import Services from './components/Services';
-import ServiceForm from './components/ServiceForm';
+import Home from './Home';
+import Services from './Services';
+import ServiceForm from './ServiceForm';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
