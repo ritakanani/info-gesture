@@ -44,14 +44,8 @@ export default function Header(props) {
                   </Link>
                 </Nav.Link>
                 <NavDropdown title="Events" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="#action3">Events</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/events">Events</NavDropdown.Item>    
+                  <NavDropdown.Item href="/create-event">Event Form</NavDropdown.Item> 
                 </NavDropdown>
 
                 <NavDropdown title="Services" id="navbarScrollingDropdown">

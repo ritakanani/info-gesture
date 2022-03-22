@@ -1,10 +1,12 @@
-import Header from './components/Layout/Header';
-import Footer from './components/Layout/Footer';
-import Login from './components/Login';
+import Header from './Layout/Header';
+import Footer from './Layout/Footer';
+import Login from './Login';
 
-import Home from './components/Home';
-import Services from './components/Services';
-import ServiceForm from './components/ServiceForm';
+import Home from './Home';
+import Events from './Events';
+import EventForm from './EventForm';
+import Services from './Services';
+import ServiceForm from './ServiceForm';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
@@ -19,6 +21,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/create-event" element={<EventForm />} />
         <Route path="/services" element={<Services />} />
         <Route path="/create-service" element={<ServiceForm />} />
       </Routes>
@@ -26,7 +30,7 @@ function App() {
       
      
       <Footer />
-    </div>
+    </div> 
   );
 }
 
