@@ -1,6 +1,10 @@
 import React from "react";
 
+<<<<<<< HEAD
 function EventForm() {
+=======
+const EventForm = () => {
+>>>>>>> service-component
   return (
     <div>
       <label for="topic">What type of event are you creating?</label>
@@ -77,4 +81,8 @@ function EventForm() {
   );
 }
 
+<<<<<<< HEAD
 export default EventForm;
+=======
+export default EventForm;
+>>>>>>> service-component
