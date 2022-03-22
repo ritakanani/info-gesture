@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Header from "./Layout/Header";
 import Footer from "./Layout/Footer";
 import Login from "./Login";
@@ -14,6 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 
+<<<<<<< HEAD
 function App() {
   // const [event, setEvent] = useState();
   useEffect(() => {
@@ -22,6 +22,9 @@ function App() {
     });
     console.log("run");
   }, []);
+=======
+function App() {  
+>>>>>>> fetch-data
 
   return (
     <div className="App">
