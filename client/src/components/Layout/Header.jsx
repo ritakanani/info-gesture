@@ -20,7 +20,10 @@ export default function Header(props) {
           Login
         </Link>
         <span className="mr-1">|</span>
-        <Link className="nav-menu text-light bg-secondary rounded-pill px-1" to="/register">
+        <Link
+          className="nav-menu text-light bg-secondary rounded-pill px-1"
+          to="/register"
+        >
           Register
         </Link>
       </Container>
@@ -44,12 +47,16 @@ export default function Header(props) {
                   </Link>
                 </Nav.Link>
                 <NavDropdown title="Events" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="/events">Events</NavDropdown.Item>    
-                  <NavDropdown.Item href="/create-event">Event Form</NavDropdown.Item> 
+                  <NavDropdown.Item href="/events">Events</NavDropdown.Item>
+                  <NavDropdown.Item href="/create-event">
+                    Event Form
+                  </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Services" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="/services">Services</NavDropdown.Item>    
-                  <NavDropdown.Item href="/create-service">Service Form</NavDropdown.Item> 
+                  <NavDropdown.Item href="/services">Services</NavDropdown.Item>
+                  <NavDropdown.Item href="/services/new">
+                    Service Form
+                  </NavDropdown.Item>
                 </NavDropdown>
               </div>
             </Container>
