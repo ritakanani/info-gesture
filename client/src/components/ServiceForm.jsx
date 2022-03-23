@@ -8,12 +8,12 @@ function ServiceForm() {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const options = [
-    { value: "toronto", label: "Toronto" },
-    { value: "york", label: "York" },
-    { value: "etobicoke", label: "Etobicoke" },
-    { value: "scarborough", label: "Scarborough" },
-    { value: "northyork", label: "North York" },
-    { value: "others", label: "Others" },
+    { value: "Toronto", label: "Toronto" },
+    { value: "York", label: "York" },
+    { value: "Etobicoke", label: "Etobicoke" },
+    { value: "Scarborough", label: "Scarborough" },
+    { value: "North York", label: "North York" },
+    { value: "Others", label: "Others" },
   ];
 
   const submitForm = (event) => {
