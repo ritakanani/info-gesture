@@ -1,9 +1,9 @@
 -- test seeds for services
-INSERT INTO services (user_id, title, category, description, url)
-  VALUES (3, 'Childcare for afterschool', 'Childcare', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper', 'http://childcare.com');
-INSERT INTO services (user_id, title, category, description, url)
-  VALUES (4, 'BEST HOUSE CLEANING', 'Job', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper', 'http://housecleaning.com');
-INSERT INTO services (user_id, title, category, description, url)
-  VALUES (5, 'Foodbank', 'social events', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper', 'http://foodbank.com');
-INSERT INTO services (user_id, title, category, description, url)
-  VALUES (6, 'Tutor for kids', 'Job', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper', 'http://bestteacher.com');
+INSERT INTO services (user_id, title, description, location)
+  VALUES (3, 'Childcare for afterschool', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper', 'Toronto');
+INSERT INTO services (user_id, title, description, location)
+  VALUES (4, 'BEST HOUSE CLEANING', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper', 'Toronto');
+INSERT INTO services (user_id, title, description, location)
+  VALUES (5, 'Foodbank','Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper', 'Toronto');
+INSERT INTO services (user_id, title, description, location)
+  VALUES (6, 'Tutor for kids','Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper', 'Toronto');

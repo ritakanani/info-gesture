@@ -5,6 +5,7 @@ console.log(process.env);
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+var cors = require('cors');
 // db connection
 const db = require("./configs/db.config");
 
@@ -12,8 +13,8 @@ const db = require("./configs/db.config");
 const usersRoutes = require("./routes/usersRoutes");
 const eventsRoutes = require("./routes/eventsRoutes");
 const servicesRoutes = require("./routes/servicesRoutes");
+const newEventRoutes = require("./routes/eventsRoutes");
 const login = require("./routes/login");
-var cors = require('cors');
 
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use("/users", usersRoutes(db));
 app.use("/events", eventsRoutes(db));
 app.use("/services", servicesRoutes(db));
+app.use("/api/create-event", newEventRoutes(db));
 app.use("/login", login(db));
 
 app.get("/", (req, res) => {

@@ -20,7 +20,7 @@ const EventForm = () => {
   return (
     <div>
       <Container className="d-flex justify-content-center">
-        <Form className="event-form">
+        <Form className="event-form" action="/events/new" method="post">
           <Form.Group className="mb-3" controlId="evnts-title">
             <Form.Label>Title</Form.Label>
             <Form.Control type="text" placeholder="User Name" />

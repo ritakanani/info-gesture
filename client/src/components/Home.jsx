@@ -14,7 +14,7 @@ export default function Home(props) {
         <Row className="main-cards d-flex align-items-center">
           <Col>
             <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Img variant="top" src="" />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
                 <Card.Text>
@@ -27,7 +27,7 @@ export default function Home(props) {
           </Col>
           <Col>
             <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Img variant="top" src="" />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
                 <Card.Text>
@@ -40,7 +40,7 @@ export default function Home(props) {
           </Col>
           <Col>
             <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Img variant="top" src="" />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
                 <Card.Text>

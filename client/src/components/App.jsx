@@ -7,7 +7,7 @@ import EventForm from './EventForm';
 import Services from './Services';
 import ServiceForm from './ServiceForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Routes, Route,Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import {authContext} from './providers/AuthProvider';
 import { useContext } from "react";
 
@@ -25,7 +25,7 @@ function App() {
         <Route path="/events" element={<Events />} />      
 
         <Route
-          path="/create-event"
+          path="/events/new"
            element={
               <RequireAuth redirectTo="/login">
                 <EventForm />
@@ -36,7 +36,7 @@ function App() {
         <Route path="/services" element={<Services />} />
 
           <Route
-            path="/create-service"
+            path="/services/new"
             element={         
               <RequireAuth redirectTo="/login">
                 <ServiceForm />
