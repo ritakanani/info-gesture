@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Select from "react-select";
+import { useNavigate } from "react-router-dom";
 
 function EventForm() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -29,6 +30,8 @@ function EventForm() {
     { value: "Other", label: "Other" },
   ];
 
+  let navigate = useNavigate();
+
   const submitForm = (event) => {
     event.preventDefault();
     axios
@@ -46,6 +49,8 @@ function EventForm() {
       .catch((error) => {
         console.log(`Something went wrong : ${error.message}`);
       });
+
+    navigate("/events");
   };
 
   return (

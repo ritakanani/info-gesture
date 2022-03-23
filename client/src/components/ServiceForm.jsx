@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Select from "react-select";
+import { useNavigate } from "react-router-dom";
 
 function ServiceForm() {
   const [title, setTitle] = useState("");
@@ -16,8 +17,11 @@ function ServiceForm() {
     { value: "Other", label: "Other" },
   ];
 
+  let navigate = useNavigate();
+
   const submitForm = (event) => {
     event.preventDefault();
+
     axios
       .post("http://localhost:8080/api/services/new", {
         title,
@@ -30,6 +34,8 @@ function ServiceForm() {
       .catch((error) => {
         console.log(`Something went wrong : ${error.message}`);
       });
+
+    navigate("/services");
   };
 
   return (
