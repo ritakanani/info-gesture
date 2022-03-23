@@ -10,7 +10,7 @@ const Events = (props) => {
   useEffect(() => {
     axios.get("/api/events")
     .then((response) => {      
-      setEvent(response.data)      
+      setEvent(response.data[4])      
       console.log("run", response.data[4]);
     });    
   }, []);
@@ -24,7 +24,7 @@ const Events = (props) => {
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src="" />
         <Card.Body>
-          <Card.Title>{event.title}</Card.Title>
+          <Card.Title>title</Card.Title>
           <Card.Text>
             March 22, 2022 •Toronto
           </Card.Text>          

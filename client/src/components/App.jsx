@@ -13,18 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 
-<<<<<<< HEAD
-function App() {
-  // const [event, setEvent] = useState();
-  useEffect(() => {
-    axios.get("/api/users").then((response) => {
-      console.log(response.data);
-    });
-    console.log("run");
-  }, []);
-=======
 function App() {  
->>>>>>> fetch-data
 
   return (
     <div className="App">
