@@ -9,13 +9,29 @@ module.exports = (db) => {
       res.json(data.rows);
     });
   });
+
+  router.post("/new", (req, res) => {
+    const query = "INSERT INTO services";
+    // const command = "SELECT * FROM services";
+    // db.query(command).then((data) => {
+    //   res.json(data.rows);
+    // });
+    console.log(req.body);
+  });
+
   return router;
 };
 
-app.get("services/new", (req, res) => {
-  console.log(res.body);
-});
+// let query = `
+//     INSERT INTO resources (user_id, topic, url, title, description) VALUES ($1, $2, $3, $4, $5) RETURNING *;
+//     `;
+//     const values = [user_id, resource.topic, resource.url, resource.title, resource.description];
 
-app.post("services/new", (req, res) => {
-  console.log(res.body);
-});
+//     db.query(query, values)
+//       .then((result) => {
+//         console.log(result.rows[0]);
+//         res.json({ resource_id: result.rows[0].id });
+//       })
+//       .catch((err) =>
+//         console.log("Can not post the created resource: ", err.message)
+//       );

@@ -1,28 +1,49 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import Select from "react-select";
 
 function ServiceForm() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const options = [
+    { value: "toronto", label: "Toronto" },
+    { value: "york", label: "York" },
+    { value: "etobicoke", label: "Etobicoke" },
+    { value: "scarborough", label: "Scarborough" },
+    { value: "northyork", label: "North York" },
+    { value: "others", label: "Others" },
+  ];
+
+  const submitForm = (event) => {
+    event.preventDefault();
+    axios
+      .post("http://localhost:8080/api/services/new", {
+        title,
+        description,
+        location: selectedOption.value,
+      })
+      .then((res) => {
+        console.log("SUCCESS");
+      })
+      .catch((error) => {
+        console.log(`Something went wrong : ${error.message}`);
+      });
+  };
+
   return (
     <div>
-      <label for="topic">What type of service are you providing?</label>
-      <select id="service_topic" name="topic">
-        <option value=""></option>
-        <option value="Health">Health</option>
-        <option value="Job">Job</option>
-        <option value="Childcare">Childcare</option>
-        <option value="Education">Education</option>
-        <option value="Fitness">Fitness</option>
-        <option value="Catering">Catering</option>
-        <option value="Other">Other</option>
-      </select>
-
       <form action="/services/new" method="post">
         <div class="new_service_title">
           <label for="new_service_title">Title</label>
           <input
             id="title"
+            value={title}
             type="text"
             name="service_title"
             placeholder="Title"
+            onChange={(e) => setTitle(e.target.value)}
           ></input>
         </div>
 
@@ -30,37 +51,26 @@ function ServiceForm() {
           <label for="new_service_description">Description</label>
           <textarea
             id="description"
+            value={description}
             placeholder="Description"
             name="service-description"
             cols="30"
             rows="10"
+            onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
 
         <div class="new_service_location">
-          <label for="new_service_location">Location</label>
-          <select id="service_location" name="service_location">
-            <option value=""></option>
-            <option value="Toronto">Toronto</option>
-            <option value="York">York</option>
-            <option value="Etobicoke">Etobicoke</option>
-            <option value="Scarborough">Scarborough</option>
-            <option value="NorthYork">North York</option>
-            <option value="Other">Other</option>
-          </select>
+          <Select
+            defaultValue={selectedOption}
+            onChange={setSelectedOption}
+            options={options}
+          />
         </div>
 
-        <div class="new_service_url">
-          <label for="new_service_url">URL</label>
-          <input
-            id="service_url"
-            type="url"
-            name="url"
-            placeholder="URL"
-          ></input>
-        </div>
-
-        <button type="submit">Create</button>
+        <button type="submit" value="Submit" onClick={submitForm}>
+          Create
+        </button>
       </form>
     </div>
   );

@@ -5,6 +5,7 @@ console.log(process.env);
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 // db connection
 const db = require("./configs/db.config");
 
@@ -14,6 +15,8 @@ const eventsRoutes = require("./routes/eventsRoutes");
 const servicesRoutes = require("./routes/servicesRoutes");
 
 const app = express();
+
+app.use(cors());
 
 // middleware setup
 app.use(morgan(ENVIROMENT));

@@ -30,7 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/create-event" element={<EventForm />} />
+        <Route path="/events/new" element={<EventForm />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/new" element={<ServiceForm />} />
       </Routes>
