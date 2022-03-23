@@ -18,8 +18,8 @@ const sessionStorageValue = JSON.parse(sessionStorage.getItem("loggedIn"));
    console.log("login");
     
     const id = "1234-1234-1234";  // Some random userId
-    
-    axios.post('http://localhost:8080/login', {email, password}).then(() => {
+    // http://localhost:8080/login
+    axios.post('/login', {email, password}).then(() => {
       setAuth(true);
       sessionStorage.setItem("loggedIn", "true");
       navigate('/', { replace: true });   
