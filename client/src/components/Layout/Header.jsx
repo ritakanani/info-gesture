@@ -12,13 +12,20 @@ import { Link } from "react-router-dom";
 
 import "./Header.scss";
 
+import { useContext } from 'react';
+import {authContext} from '../providers/AuthProvider';
+
+
 export default function Header(props) {
+  const { auth, logout } = useContext(authContext);
+  console.log(auth)
   return (
     <>
       <Container fluid className="d-flex justify-content-end my-1">
-        <Link className="nav-menu mr-1" to="/login">
+      { !auth ?  <Link className="nav-menu mr-1" to="/login">
           Login
-        </Link>
+        </Link> : <Button className="nav-menu mr-1" onClick={logout}>Logout </Button>  } 
+
         <span className="mr-1">|</span>
         <Link
           className="nav-menu text-light bg-secondary rounded-pill px-1"
@@ -48,7 +55,7 @@ export default function Header(props) {
                 </Nav.Link>
                 <NavDropdown title="Events" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="/events">Events</NavDropdown.Item>
-                  <NavDropdown.Item href="/create-event">
+                  <NavDropdown.Item href="/events/new">
                     Event Form
                   </NavDropdown.Item>
                 </NavDropdown>
