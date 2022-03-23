@@ -17,7 +17,7 @@ function EventForm(props) {
 
       <form action="/events/new" method="post">
         <div class="new_event_title">
-          <label for="new_event_title">Title</label>
+          <label for="event_title">Title</label>
           <input
             id="title"
             type="text"
@@ -27,7 +27,7 @@ function EventForm(props) {
         </div>
 
         <div class="new_event_description">
-          <label for="new_event_description">Description</label>
+          <label for="event_description">Description</label>
           <textarea
             id="description"
             placeholder="Description"
@@ -38,7 +38,7 @@ function EventForm(props) {
         </div>
 
         <div class="new_event_location">
-          <label for="new_event_location">Location</label>
+          <label for="event_location">Location</label>
           <select id="event_location" name="event_location">
             <option value=""></option>
             <option value="Toronto">Toronto</option>
@@ -51,7 +51,7 @@ function EventForm(props) {
         </div>
 
         <div class="new_event_date">
-          <label for="new_event_time">Date</label>
+          <label for="date">Date</label>
           <input
             id="event_date"
             type="date"
@@ -61,7 +61,7 @@ function EventForm(props) {
         </div>
 
         <div class="new_event_time">
-          <label for="new_event_time">Time</label>
+          <label for="time">Time</label>
           <input
             id="event_time"
             type="time"
