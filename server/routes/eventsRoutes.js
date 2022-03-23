@@ -10,21 +10,19 @@ module.exports = (db) => {
     });
   });
 
-  router.post("/events/new", (req, res) => {
-    const { user_id } = req.params;
+  router.post("/new", (req, res) => {
+    // const { user_id } = req.params;
     const { topic, event_title, event_description, event_location, date, time  } = req.body;
 
+    console.log("form body", req.body);
+
     let query = `
-    INSERT INTO events (user_id, title, category, description, location, date, time) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *
+    INSERT INTO events (title, category, description, location, date, time) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *
     `;
-    db.query(query, [user_id, event_title, topic, event_description, event_location, date, time])
+    db.query(query, [event_title, topic, event_description, event_location, date, time])
       .then((result) => {
-        const events = result.rows;
-        console.log(result.rows);
-        const templateVars = {
-          events,
-        };
-        res.render("events", templateVars);
+        res.render("events")        ;
+        res.status(200).json({ success: true });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

@@ -3,6 +3,7 @@ import React from "react";
 function EventForm(props) {
   return (
     <div>
+      <form action="/api/create-event/new" method="post">
       <label for="topic">What type of event are you creating?</label>
       <select id="event_topic" name="topic">
         <option value=""></option>
@@ -15,7 +16,6 @@ function EventForm(props) {
         <option value="Other">Other</option>
       </select>
 
-      <form action="/events/new" method="post">
         <div class="new_event_title">
           <label for="event_title">Title</label>
           <input
@@ -31,7 +31,7 @@ function EventForm(props) {
           <textarea
             id="description"
             placeholder="Description"
-            name="event-description"
+            name="event_description"
             cols="30"
             rows="10"
           ></textarea>
