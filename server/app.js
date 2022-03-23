@@ -13,7 +13,7 @@ const db = require("./configs/db.config");
 const usersRoutes = require("./routes/usersRoutes");
 const eventsRoutes = require("./routes/eventsRoutes");
 const servicesRoutes = require("./routes/servicesRoutes");
-
+const newEventRoutes = require("./routes/eventsRoutes");
 const app = express();
 
 app.use(cors());
@@ -26,6 +26,7 @@ app.use(bodyParser.json());
 app.use("/api/users", usersRoutes(db));
 app.use("/api/events", eventsRoutes(db));
 app.use("/api/services", servicesRoutes(db));
+app.use("/api/create-event", newEventRoutes(db));
 
 app.get("/", (req, res) => {
   res.json({ greetings: "hello world" });
