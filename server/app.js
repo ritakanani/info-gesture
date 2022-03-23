@@ -12,9 +12,12 @@ const db = require("./configs/db.config");
 const usersRoutes = require("./routes/usersRoutes");
 const eventsRoutes = require("./routes/eventsRoutes");
 const servicesRoutes = require("./routes/servicesRoutes");
+const login = require("./routes/login");
+var cors = require('cors');
+
 
 const app = express();
-
+app.use(cors({origin: 'http://localhost:3000'}));
 // middleware setup
 app.use(morgan(ENVIROMENT));
 app.use(bodyParser.json());
@@ -23,6 +26,7 @@ app.use(bodyParser.json());
 app.use("/users", usersRoutes(db));
 app.use("/events", eventsRoutes(db));
 app.use("/services", servicesRoutes(db));
+app.use("/login", login(db));
 
 app.get("/", (req, res) => {
   res.json({ greetings: "hello world" });
