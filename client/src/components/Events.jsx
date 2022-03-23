@@ -6,7 +6,11 @@ const Events = (props) => {
   const [event, setEvent] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/events")
+
+    const baseurl = process.env.REACT_APP_BASEURL;
+     console.log(baseurl);
+
+    axios.get(`${baseurl}/api/events`)
       .then((response) => {
       setEvent(response.data);
     });
@@ -30,7 +34,7 @@ const Events = (props) => {
 
   return (
     <>
-      <div>Event</div>
+      
       {allEvents}
     </>
   );

@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { ENVIROMENT, PORT } = process.env;
-console.log(process.env);
+console.log('process', process.env);
 
 const express = require("express");
 const morgan = require("morgan");
@@ -19,14 +19,16 @@ const login = require("./routes/login");
 
 const app = express();
 app.use(cors({origin: 'http://localhost:3000'}));
+
+
 // middleware setup
 app.use(morgan(ENVIROMENT));
 app.use(bodyParser.json());
 
 // routes
-app.use("/users", usersRoutes(db));
-app.use("/events", eventsRoutes(db));
-app.use("/services", servicesRoutes(db));
+app.use("/api/users", usersRoutes(db));
+app.use("/api/events", eventsRoutes(db));
+app.use("/api/services", servicesRoutes(db));
 app.use("/api/create-event", newEventRoutes(db));
 app.use("/login", login(db));
 
