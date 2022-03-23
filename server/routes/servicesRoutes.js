@@ -11,27 +11,20 @@ module.exports = (db) => {
   });
 
   router.post("/new", (req, res) => {
-    const query = "INSERT INTO services";
-    // const command = "SELECT * FROM services";
-    // db.query(command).then((data) => {
-    //   res.json(data.rows);
-    // });
+    const command =
+      "INSERT INTO services (user_id, title, description, location) VALUES ($1, $2, $3, $4)";
+    const values = [1, req.body.title, req.body.description, req.body.location];
+
+    db.query(command, values)
+      .then((result) => {
+        console.log(result.rows[0]);
+      })
+      .catch((err) =>
+        console.log("Can not post the created services: ", err.message)
+      );
+
     console.log(req.body);
   });
 
   return router;
 };
-
-// let query = `
-//     INSERT INTO resources (user_id, topic, url, title, description) VALUES ($1, $2, $3, $4, $5) RETURNING *;
-//     `;
-//     const values = [user_id, resource.topic, resource.url, resource.title, resource.description];
-
-//     db.query(query, values)
-//       .then((result) => {
-//         console.log(result.rows[0]);
-//         res.json({ resource_id: result.rows[0].id });
-//       })
-//       .catch((err) =>
-//         console.log("Can not post the created resource: ", err.message)
-//       );
