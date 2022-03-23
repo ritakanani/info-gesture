@@ -1,28 +1,73 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import Select from "react-select";
 
-function EventForm(props) {
+function EventForm() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+
+  const category_options = [
+    { value: "Hobbies", label: "Hobbies" },
+    { value: "Career", label: "Career" },
+    { value: "Childcare", label: "Childcare" },
+    { value: "Education", label: "Education" },
+    { value: "Fitness", label: "Fitness" },
+    { value: "Family", label: "Family" },
+    { value: "Other", label: "Other" },
+  ];
+
+  const location_options = [
+    { value: "Toronto", label: "Toronto" },
+    { value: "York", label: "York" },
+    { value: "Etobicoke", label: "Etobicoke" },
+    { value: "Scarborough", label: "Scarborough" },
+    { value: "North York", label: "North York" },
+    { value: "Other", label: "Other" },
+  ];
+
+  const submitForm = (event) => {
+    event.preventDefault();
+    axios
+      .post("http://localhost:8080/api/events/new", {
+        category: selectedCategory.value,
+        title,
+        description,
+        location: selectedLocation.value,
+        date,
+        time,
+      })
+      .then((res) => {
+        console.log("SUCCESS");
+      })
+      .catch((error) => {
+        console.log(`Something went wrong : ${error.message}`);
+      });
+  };
+
   return (
     <div>
-      <label for="topic">What type of event are you creating?</label>
-      <select id="event_topic" name="topic">
-        <option value=""></option>
-        <option value="Hobbies">Hobbies</option>
-        <option value="Career">Career</option>
-        <option value="Childcare">Childcare</option>
-        <option value="Education">Education</option>
-        <option value="Fitness">Fitness</option>
-        <option value="Family">Family</option>
-        <option value="Other">Other</option>
-      </select>
-
       <form action="/events/new" method="post">
+        <label for="category">What type of event are you creating?</label>
+        <div class="event_category">
+          <Select
+            defaultValue={selectedCategory}
+            onChange={setSelectedCategory}
+            options={category_options}
+          />
+        </div>
         <div class="new_event_title">
           <label for="event_title">Title</label>
           <input
             id="title"
+            value={title}
             type="text"
             name="event_title"
             placeholder="Title"
+            onChange={(e) => setTitle(e.target.value)}
           ></input>
         </div>
 
@@ -30,33 +75,32 @@ function EventForm(props) {
           <label for="event_description">Description</label>
           <textarea
             id="description"
+            value={description}
             placeholder="Description"
             name="event-description"
             cols="30"
             rows="10"
+            onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
 
-        <div class="new_event_location">
-          <label for="event_location">Location</label>
-          <select id="event_location" name="event_location">
-            <option value=""></option>
-            <option value="Toronto">Toronto</option>
-            <option value="York">York</option>
-            <option value="Etobicoke">Etobicoke</option>
-            <option value="Scarborough">Scarborough</option>
-            <option value="NorthYork">North York</option>
-            <option value="Other">Other</option>
-          </select>
+        <div class="event_location">
+          <Select
+            defaultValue={selectedLocation}
+            onChange={setSelectedLocation}
+            options={location_options}
+          />
         </div>
 
-        <div class="new_event_date">
+        <div class="event_date">
           <label for="date">Date</label>
           <input
             id="event_date"
+            value={date}
             type="date"
             name="date"
             min="2022-04-01T00:00"
+            onChange={(e) => setDate(e.target.value)}
           ></input>
         </div>
 
@@ -64,14 +108,18 @@ function EventForm(props) {
           <label for="time">Time</label>
           <input
             id="event_time"
+            value={time}
             type="time"
             name="time"
             min="8:00"
             max="22:00"
+            onChange={(e) => setTime(e.target.value)}
           ></input>
         </div>
 
-        <button type="submit">Create Event</button>
+        <button type="submit" value="Submit" onClick={submitForm}>
+          Create Event
+        </button>
       </form>
     </div>
   );

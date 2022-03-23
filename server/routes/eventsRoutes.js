@@ -10,36 +10,30 @@ module.exports = (db) => {
     });
   });
 
-  router.post("/events/new", (req, res) => {
-    const { user_id } = req.params;
-    const {
-      topic,
-      event_title,
-      event_description,
-      event_location,
-      date,
-      time,
-    } = req.body;
+  router.post("/new", (req, res) => {
+    // const { user_id } = req.params;
+
+    const { category, title, description, location, date, time } = req.body;
 
     let query = `
-    INSERT INTO events (user_id, title, category, description, location, date, time) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *
+    INSERT INTO events (user_id, category, title, description, location, date, time) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *
     `;
     db.query(query, [
-      user_id,
-      event_title,
-      topic,
-      event_description,
-      event_location,
+      6, // Switch with req.params above when login is established
+      category,
+      title,
+      description,
+      location,
       date,
       time,
     ])
       .then((result) => {
-        const events = result.rows;
+        // const events = result.rows;
         console.log(result.rows);
-        const templateVars = {
-          events,
-        };
-        res.render("events", templateVars);
+        // const templateVars = {
+        //   events,
+        // };
+        // res.render("events", templateVars);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

@@ -13,7 +13,7 @@ function ServiceForm() {
     { value: "Etobicoke", label: "Etobicoke" },
     { value: "Scarborough", label: "Scarborough" },
     { value: "North York", label: "North York" },
-    { value: "Others", label: "Others" },
+    { value: "Other", label: "Other" },
   ];
 
   const submitForm = (event) => {
@@ -35,8 +35,8 @@ function ServiceForm() {
   return (
     <div>
       <form action="/services/new" method="post">
-        <div class="new_service_title">
-          <label for="new_service_title">Title</label>
+        <div class="service_title">
+          <label for="service_title">Title</label>
           <input
             id="title"
             value={title}
@@ -47,20 +47,20 @@ function ServiceForm() {
           ></input>
         </div>
 
-        <div class="new_service_description">
-          <label for="new_service_description">Description</label>
+        <div class="service_description">
+          <label for="service_description">Description</label>
           <textarea
             id="description"
             value={description}
             placeholder="Description"
-            name="service-description"
+            name="service_description"
             cols="30"
             rows="10"
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
 
-        <div class="new_service_location">
+        <div class="service_location">
           <Select
             defaultValue={selectedOption}
             onChange={setSelectedOption}
