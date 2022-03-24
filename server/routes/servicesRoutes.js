@@ -1,6 +1,5 @@
 const express = require("express");
 const router = require("express").Router();
-const app = express();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -18,14 +17,10 @@ module.exports = (db) => {
 
     const query = `INSERT INTO services (user_id, title, description) VALUES ($1, $2, $3) RETURNING * `;
 
-    db.query(query, [6, title, description, location]) // Switch with req.params above when login is established
+    db.query(query, [6, title, description]) // Switch with req.params above when login is established
       .then((result) => {
-        // const services = result.rows;
-        console.log(result.rows);
-        // const templateVars = {
-        //   services,
-        // };
-        // res.render("services", templateVars);
+        console.log(result.row[0]);
+        res.status(200).json({ success: true });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

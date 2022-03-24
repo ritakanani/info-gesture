@@ -15,7 +15,6 @@ function ServiceForm() {
       .post("http://localhost:8080/api/services/new", {
         title,
         description,
-        location: selectedOption.value,
       })
       .then((res) => {
         console.log("SUCCESS");

@@ -29,9 +29,6 @@ const Services = () => {
           <Card.Img variant="top" src="" />
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
-            <Card.Text>
-              {date} •{item.location}
-            </Card.Text>
             <Card.Text>{item.description}</Card.Text>
             <Button variant="primary">Message</Button>
           </Card.Body>
