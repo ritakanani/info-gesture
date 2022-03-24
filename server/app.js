@@ -3,9 +3,10 @@ const { ENVIROMENT, PORT } = process.env;
 console.log(process.env);
 
 const express = require("express");
+const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-const cors = require("cors");
+app.use(express.urlencoded({extended: true}));
 // db connection
 const db = require("./configs/db.config");
 
@@ -16,17 +17,17 @@ const servicesRoutes = require("./routes/servicesRoutes");
 const newEventRoutes = require("./routes/eventsRoutes");
 const login = require("./routes/login");
 
-
-const app = express();
+const cors = require("cors");
 app.use(cors({origin: 'http://localhost:3000'}));
 // middleware setup
 app.use(morgan(ENVIROMENT));
 app.use(bodyParser.json());
+app.use(express.json());
 
 // routes
-app.use("/users", usersRoutes(db));
-app.use("/events", eventsRoutes(db));
-app.use("/services", servicesRoutes(db));
+app.use("/api/users", usersRoutes(db));
+app.use("/api/events", eventsRoutes(db));
+app.use("/api/services", servicesRoutes(db));
 app.use("/api/create-event", newEventRoutes(db));
 app.use("/login", login(db));
 

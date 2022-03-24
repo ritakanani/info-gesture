@@ -6,11 +6,11 @@ import Events from './Events';
 import EventForm from './EventForm';
 import Services from './Services';
 import ServiceForm from './ServiceForm';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route, Navigate } from "react-router-dom";
 import {authContext} from './providers/AuthProvider';
 import { useContext } from "react";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
 function App() {

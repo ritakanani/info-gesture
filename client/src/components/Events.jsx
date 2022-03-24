@@ -12,14 +12,26 @@ const Events = (props) => {
     });
   }, []);
 
+  // const categories = {};
   const allEvents = event.map((item) => {
+    // if (item.category in categories) {
+    //   categories[item.category].push(item);
+    // } else {
+    //   categories[item.category] = [item];
+    // }
+    // return { eventCategories }
+    var d = new Date(item.date);
+    var date = d.toString().split(" ").slice(0, 4).join(" ");
+
     return (
       <>
         <Card style={{ width: "18rem" }}>
           <Card.Img variant="top" src="" />
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
-            <Card.Text>March 22, 2022 •{item.location}</Card.Text>
+            <Card.Text>
+              {date} •{item.location}
+            </Card.Text>
             <Card.Text>{item.description}</Card.Text>
             <Button variant="primary">Message</Button>
           </Card.Body>
