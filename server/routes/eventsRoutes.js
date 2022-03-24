@@ -1,6 +1,5 @@
 const express = require("express");
 const router = require("express").Router();
-const app = express();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -10,36 +9,17 @@ module.exports = (db) => {
     });
   });
 
-  router.post("/events/new", (req, res) => {
-    const { user_id } = req.params;
-    const {
-      topic,
-      event_title,
-      event_description,
-      event_location,
-      date,
-      time,
-    } = req.body;
+  router.post("/new", (req, res) => {    
+    const { topic, title, description, location, date, time  } = req.body;    
 
     let query = `
-    INSERT INTO events (user_id, title, category, description, location, date, time) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *
+    INSERT INTO events (title, category, description, location, date, time) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *
     `;
-    db.query(query, [
-      user_id,
-      event_title,
-      topic,
-      event_description,
-      event_location,
-      date,
-      time,
-    ])
-      .then((result) => {
-        const events = result.rows;
-        console.log(result.rows);
-        const templateVars = {
-          events,
-        };
-        res.render("events", templateVars);
+
+    db.query(query, [title, topic, description, location, date, time])
+      .then((result) => { 
+        console.log(result.rows[0]);       
+        res.status(200).json({ success: true });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

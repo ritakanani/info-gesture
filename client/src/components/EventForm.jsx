@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import './EventForm.scss'
 import { Container, Form, Button } from 'react-bootstrap'
 import {authContext} from './providers/AuthProvider';
