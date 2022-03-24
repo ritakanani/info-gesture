@@ -8,7 +8,7 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./Header.scss";
 
@@ -18,7 +18,16 @@ import {authContext} from '../providers/AuthProvider';
 
 export default function Header(props) {
   const { auth, logout } = useContext(authContext);
-  console.log(auth)
+
+  const { setCurrentFilter } = props;
+
+  // function for navigation to /events path in dropdown menu
+  const navigate = useNavigate();
+  function handleClick() {
+    setCurrentFilter("");
+    navigate('/events');
+  }
+  
   return (
     <>
       <Container fluid className="d-flex justify-content-end my-1">
@@ -54,7 +63,13 @@ export default function Header(props) {
                   </Link>
                 </Nav.Link>
                 <NavDropdown title="Events" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="/events">Events</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleClick()}>Events</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setCurrentFilter("Art & Ctafts")}>Art & Crafts</NavDropdown.Item>                  
+                  <NavDropdown.Item onClick={() => setCurrentFilter("Yoga")}>Yoga</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setCurrentFilter("Family Gathering")}>Family Gathering</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setCurrentFilter("Job fair")}>Job fair</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setCurrentFilter("Webinar")}>Webinar</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setCurrentFilter("Other")}>Other</NavDropdown.Item>
                   <NavDropdown.Item href="/events/new">
                     Event Form
                   </NavDropdown.Item>

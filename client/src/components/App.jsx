@@ -1,3 +1,4 @@
+import React, { useState, useContext } from 'react';
 import Header from './Layout/Header';
 import Footer from './Layout/Footer';
 import Login from './Login';
@@ -8,21 +9,23 @@ import Services from './Services';
 import ServiceForm from './ServiceForm';
 import { Routes, Route, Navigate } from "react-router-dom";
 import {authContext} from './providers/AuthProvider';
-import { useContext } from "react";
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
 function App() {
 
+  const [ currentFilter, setCurrentFilter ] = useState("");
+
   return (
     <div className="App">
-      <Header />
+      <Header setCurrentFilter={setCurrentFilter} />
           
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />      
+        <Route path="/events" element={<Events currentFilter={currentFilter} />} />      
 
         <Route
           path="/events/new"
