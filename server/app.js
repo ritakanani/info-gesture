@@ -17,8 +17,8 @@ const servicesRoutes = require("./routes/servicesRoutes");
 const newEventRoutes = require("./routes/eventsRoutes");
 const login = require("./routes/login");
 
-// const cors = require("cors");
-// app.use(cors({origin: 'http://localhost:3000'}));
+const cors = require("cors");
+app.use(cors({origin: 'http://localhost:3000'}));
 // middleware setup
 app.use(morgan(ENVIROMENT));
 app.use(bodyParser.json());
