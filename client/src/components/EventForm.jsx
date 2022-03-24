@@ -91,7 +91,7 @@ const EventForm = () => {
           </Form.Group>
 
           <Form.Group controlId="events-location">
-            <Form.Label>What type of event are you creating?</Form.Label>
+            <Form.Label>What is the event location?</Form.Label>
             <Form.Select
               name="event_location"
               defaultValue="Choose..."

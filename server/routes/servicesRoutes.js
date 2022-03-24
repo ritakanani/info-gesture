@@ -13,10 +13,10 @@ module.exports = (db) => {
   router.post("/new", (req, res) => {
     // const { user_id } = req.params;
 
-    const { title, description, location } = req.body;
+    const { title, description } = req.body;
     console.log(req.body);
 
-    const query = `INSERT INTO services (user_id, title, description, location) VALUES ($1, $2, $3, $4) RETURNING * `;
+    const query = `INSERT INTO services (user_id, title, description) VALUES ($1, $2, $3) RETURNING * `;
 
     db.query(query, [6, title, description, location]) // Switch with req.params above when login is established
       .then((result) => {
