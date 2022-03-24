@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { ENVIROMENT, PORT } = process.env;
-console.log(process.env);
+console.log('process', process.env);
 
 const express = require("express");
 const app = express();
@@ -19,6 +19,8 @@ const login = require("./routes/login");
 
 const cors = require("cors");
 app.use(cors({origin: 'http://localhost:3000'}));
+
+
 // middleware setup
 app.use(morgan(ENVIROMENT));
 app.use(bodyParser.json());

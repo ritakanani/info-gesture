@@ -13,7 +13,7 @@ const EventForm = () => {
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("");  
+  const [time, setTime] = useState("");
 
   const { auth } = useContext(authContext);
   let navigate = useNavigate();
@@ -34,7 +34,7 @@ const EventForm = () => {
         description,
         location,
         date,
-        time        
+        time,
       })
       .then((res) => {
         console.log("SUCCESS", res);
@@ -65,7 +65,11 @@ const EventForm = () => {
 
           <Form.Group controlId="events-types">
             <Form.Label>What type of event are you creating?</Form.Label>
-            <Form.Select name="topic" defaultValue="Choose..." onChange={(e) => setTopic(e.target.value)}>
+            <Form.Select
+              name="topic"
+              defaultValue="Choose..."
+              onChange={(e) => setTopic(e.target.value)}
+            >
               <option>Choose...</option>
               <option>Other</option>
               <option>Webinar</option>
@@ -78,12 +82,21 @@ const EventForm = () => {
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Example textarea</Form.Label>
-            <Form.Control name="event_description" as="textarea" rows={3} onChange={(e) => setDescription(e.target.value)}/>
+            <Form.Control
+              name="event_description"
+              as="textarea"
+              rows={3}
+              onChange={(e) => setDescription(e.target.value)}
+            />
           </Form.Group>
 
           <Form.Group controlId="events-location">
             <Form.Label>What type of event are you creating?</Form.Label>
-            <Form.Select name="event_location" defaultValue="Choose..." onChange={(e) => setLocation(e.target.value)}>
+            <Form.Select
+              name="event_location"
+              defaultValue="Choose..."
+              onChange={(e) => setLocation(e.target.value)}
+            >
               <option>Choose...</option>
               <option>Toronto</option>
               <option>York</option>
@@ -96,12 +109,20 @@ const EventForm = () => {
 
           <Form.Group className="mb-3" controlId="event-date">
             <Form.Label>Date</Form.Label>
-            <Form.Control type="date" name="date" onChange={(e) => setDate(e.target.value)}/>
+            <Form.Control
+              type="date"
+              name="date"
+              onChange={(e) => setDate(e.target.value)}
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="event-time">
             <Form.Label>Time</Form.Label>
-            <Form.Control type="time" name="time" onChange={(e) => setTime(e.target.value)} />
+            <Form.Control
+              type="time"
+              name="time"
+              onChange={(e) => setTime(e.target.value)}
+            />
           </Form.Group>
 
           <Button variant="secondary" type="submit" onClick={submitForm}>

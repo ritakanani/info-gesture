@@ -12,8 +12,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 import "./Header.scss";
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import {authContext} from '../providers/AuthProvider';
+import {EventsContext} from '../hooks/EventsProvider'
 
 
 export default function Header(props) {
@@ -28,6 +29,13 @@ export default function Header(props) {
     navigate('/events');
   }
   
+  const [inputlocationValue, setLocation] = useState("");
+
+  const { search } = useContext(EventsContext)
+    const onSubmit = (event) => {
+       event.preventDefault()
+        search(inputlocationValue)
+    }
   return (
     <>
       <Container fluid className="d-flex justify-content-end my-1">
@@ -45,7 +53,7 @@ export default function Header(props) {
       </Container>
       <Navbar bg="light" expand="lg" className="py-4 border mb-5">
         <Container fluid>
-          <Navbar.Brand className="nav-logo" href="#">
+          <Navbar.Brand className="nav-logo" href="/">
             Info Gesture
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -82,15 +90,21 @@ export default function Header(props) {
                 </NavDropdown>
               </div>
             </Container>
-            <Form className="d-flex">
+
+            <Form className="d-flex" onSubmit={onSubmit}>
               <FormControl
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                value={inputlocationValue}
+                onChange={(event) => setLocation(event.target.value)}
+                
               />
-              <Button variant="outline-success">Location</Button>
+              <Button type="submit"  variant="outline-success">Location</Button>
             </Form>
+
+
           </Navbar.Collapse>
         </Container>
       </Navbar>

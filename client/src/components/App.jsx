@@ -13,6 +13,7 @@ import {authContext} from './providers/AuthProvider';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
+import EventsProvider from './hooks/EventsProvider';
 
 function App() {
 
@@ -20,7 +21,9 @@ function App() {
 
   return (
     <div className="App">
+     <EventsProvider>
       <Header setCurrentFilter={setCurrentFilter} />
+      {/* <Header /> */}
           
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -48,9 +51,10 @@ function App() {
           />
       
       </Routes>
-     
+      
   
       <Footer />
+      </ EventsProvider> 
     </div> 
   );
 }

@@ -195,9 +195,8 @@ const Services = () => {
 
       <div className="contact-tag">
         <h3>Community Contact </h3>
-        <i class="fa fa-phone-square button-icon-left"></i>Phone: 512-842-1111
-        <i class="fa fa-phone-square button-icon-left"></i>Email:
-        info@community.com
+        <i class="fa fa-phone-square button-icon-left"></i>Phone: 512-842-1111  | 
+        <i class="fa fa-phone-square button-icon-left"></i>Email: info@community.com
       </div>
     </div>
   );
