@@ -12,13 +12,21 @@ import { Link } from "react-router-dom";
 
 import "./Header.scss";
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import {authContext} from '../providers/AuthProvider';
+import {EventsContext} from '../hooks/EventsProvider'
 
 
 export default function Header(props) {
   const { auth, logout } = useContext(authContext);
-  
+
+  const [inputlocationValue, setLocation] = useState("");
+
+  const { search } = useContext(EventsContext)
+    const onSubmit = (event) => {
+       event.preventDefault()
+        search(inputlocationValue)
+    }
   return (
     <>
       <Container fluid className="d-flex justify-content-end my-1">
@@ -65,15 +73,17 @@ export default function Header(props) {
               </div>
             </Container>
 
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={onSubmit}>
               <FormControl
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                value={inputlocationValue}
+                onChange={(event) => setLocation(event.target.value)}
                 
               />
-              <Button variant="outline-success">Location</Button>
+              <Button type="submit"  variant="outline-success">Location</Button>
             </Form>
 
 

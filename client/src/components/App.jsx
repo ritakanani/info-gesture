@@ -12,17 +12,19 @@ import {authContext} from './providers/AuthProvider';
 import { useContext } from "react";
 
 import './App.scss';
+import EventsProvider from './hooks/EventsProvider';
 
 function App() {
 
   return (
     <div className="App">
+     <EventsProvider>
       <Header />
           
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />      
+        <Route path="/events" element={<Events />} />     
 
         <Route
           path="/events/new"
@@ -45,9 +47,10 @@ function App() {
           />
       
       </Routes>
-     
+      
   
       <Footer />
+      </ EventsProvider> 
     </div> 
   );
 }
