@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 // import "./Services.scss";
 import { Card, Button } from "react-bootstrap";
+import Mailto from "./MailLink";
 
 const Services = () => {
   const [service, setService] = useState([]);
@@ -20,8 +21,8 @@ const Services = () => {
     //   categories[item.category] = [item];
     // }
     // return { eventCategories }
-    var d = new Date(item.date);
-    var date = d.toString().split(" ").slice(0, 4).join(" ");
+    // var d = new Date(item.date);
+    // var date = d.toString().split(" ").slice(0, 4).join(" ");
 
     return (
       <>
@@ -31,6 +32,7 @@ const Services = () => {
             <Card.Title>{item.title}</Card.Title>
             <Card.Text>{item.description}</Card.Text>
             <Button variant="primary">Message</Button>
+            <Mailto />
           </Card.Body>
         </Card>
       </>
