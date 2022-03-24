@@ -11,7 +11,7 @@ const EventsProvider = (props) => {
   
     const search = (searchlocation) => {
 
-      const searchResults = events.filter(item => item.location === searchlocation)
+      const searchResults = events.filter(item => item.location.toLowerCase().includes(searchlocation.toLowerCase()))
       setSearchResults(searchResults)  
       console.log(searchlocation)       
 
