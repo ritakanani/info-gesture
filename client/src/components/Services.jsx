@@ -32,7 +32,7 @@ const Services = () => {
             <Card.Title>{item.title}</Card.Title>
             <Card.Text>{item.description}</Card.Text>
             <Button variant="primary">Message</Button>
-            <Mailto />
+            <Mailto email={item.email} title={item.title} />
           </Card.Body>
         </Card>
       </>

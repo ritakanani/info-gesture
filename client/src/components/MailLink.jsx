@@ -1,12 +1,9 @@
 import React from "react";
 import { BsFillEnvelopeFill } from "react-icons/bs";
 
-const Mailto = ({ email, subject, body, ...props }) => {
+const Mailto = ({ email, title, ...props }) => {
   return (
-    <a
-      class="mail-link"
-      href={`mailto:${email}?subject=${subject || ""}&body=${body || ""}`}
-    >
+    <a href={`mailto:${email}?subject=InfoGesture Inquiry: ${title || ""}`}>
       {props.children}
       <BsFillEnvelopeFill />
     </a>
