@@ -1,21 +1,13 @@
-import React, { useContext,useEffect } from "react";
+import React, { useContext } from "react";
 import {EventsContext} from "./hooks/EventsProvider";
 import { Card, Button } from "react-bootstrap";
 
 
 const Events = (props) => {
-  // const [event, setEvent] = useState([]);
   const {events, getEvents, searchResults }  = useContext(EventsContext)
   const { currentFilter } = props;  
 
-  // useEffect(() => {
-  //   axios.get("/api/events").then((response) => {
-  //     setEvent(response.data);
-  //   });
-  // }, []);
-
-
-  const searchEvents = searchResults.map((item) => {
+ const searchEvents = searchResults.map((item) => {
     var d = new Date(item.date);
     var date = d.toString().split(" ").slice(0, 4).join(" ");
     return (
@@ -36,23 +28,16 @@ const Events = (props) => {
   console.log('data', events);
   
 
-  useEffect(() => {
-    
-     getEvents()
 
-    
-  }, []);
-
-
+  {props.showAll === true && searchResults.length === 0 ? allEvents : searchEvents }
 
   const allEvents = events
-    .filter((x) => x.category === currentFilter || currentFilter === "")
-    .map((item) => {
-      var d = new Date(item.date);
-      var date = d.toString().split(" ").slice(0, 4).join(" ");
-
-      return (
-        <>
+  .filter((x) => x.category === currentFilter || currentFilter === "")
+  .map((item) => {
+    var d = new Date(item.date);
+    var date = d.toString().split(" ").slice(0, 4).join(" ");
+  return (
+    <>
           <Card style={{ width: "18rem" }}>
             <Card.Img variant="top" src="" />
             <Card.Body>
@@ -64,18 +49,19 @@ const Events = (props) => {
               <Button variant="primary">Message</Button>
             </Card.Body>
           </Card>
-        </>
-      );
+    </>
+     );
     });
-
-  return (
+    
+    return (
     <>
       <h1>Events</h1>
       <h3>{currentFilter}</h3>
       {allEvents}   
-      {searchResults.length === 0 ? allEvents : searchEvents }
+      {props.showAll === true && searchResults.length === 0 ? allEvents : searchEvents }
     </>
-  );
+    );
+   
 };
 
 export default Events;

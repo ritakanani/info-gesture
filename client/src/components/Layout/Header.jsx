@@ -31,10 +31,21 @@ export default function Header(props) {
   
   const [inputlocationValue, setLocation] = useState("");
 
-  const { search } = useContext(EventsContext)
-    const onSubmit = (event) => {
+  const { search, setSearchResults } = useContext(EventsContext)
+
+  const onChange = (event) => {
+    setLocation(event.target.value)
+    
+    if(event.target.value === ''){
+
+      setSearchResults([])   
+    }
+  }
+
+  const onSubmit = (event) => {
        event.preventDefault()
         search(inputlocationValue)
+        console.log('submit', inputlocationValue)
     }
   return (
     <>
@@ -98,7 +109,7 @@ export default function Header(props) {
                 className="me-2"
                 aria-label="Search"
                 value={inputlocationValue}
-                onChange={(event) => setLocation(event.target.value)}
+                onChange={onChange}
                 
               />
               <Button type="submit"  variant="outline-success">Location</Button>

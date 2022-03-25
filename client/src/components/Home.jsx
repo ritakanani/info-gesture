@@ -1,13 +1,16 @@
 import React from "react";
 
+
 import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 
 import "./Home.scss";
 
 export default function Home(props) {
+   
   return (
     <>
-      <Container className="main-title mb-5">
+
+        <Container className="main-title mb-5">
         <h2 className="fw-bold">Friendly Events & Services</h2>
       </Container>
       <Container fluid className="bg-secondary d-flex justify-content-center">
