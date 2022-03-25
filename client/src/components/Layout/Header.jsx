@@ -30,14 +30,14 @@ export default function Header(props) {
   function handleClick() {
     setCurrentFilter("");
     navigate('/events');
-  }
-  
-  
+  }  
 
-  const { search, location, setLocation } = useContext(EventsContext)
+  const { setLocation } = useContext(EventsContext)
     const onSubmit = (event) => {
        event.preventDefault()
         setLocation(inputlocation)
+        navigate('/events');
+
     }
   return (
     <>

@@ -85,7 +85,7 @@ const Services = () => {
                 Children shine brightest when they play and learn – together.
                 You can see up coming program for child here.
               </p>
-              <h5 className="card-title"></h5>
+              <h5 className="card-title">Child-care</h5>
               <a href="https://ymcagta.org/child-care">Child-care</a>
             </div>
           </div>
