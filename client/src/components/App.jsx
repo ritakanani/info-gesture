@@ -22,8 +22,7 @@ function App() {
   return (
     <div className="App">
      <EventsProvider>
-      <Header setCurrentFilter={setCurrentFilter} />
-      {/* <Header /> */}
+      <Header setCurrentFilter={setCurrentFilter} />      
           
       <Routes>
         <Route path="/login" element={<Login />} />

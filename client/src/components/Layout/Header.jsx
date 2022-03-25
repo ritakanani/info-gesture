@@ -18,7 +18,10 @@ import {EventsContext} from '../hooks/EventsProvider'
 
 
 export default function Header(props) {
+
+  const [inputlocation, setinputLocation] = useState("")
   const { auth, logout } = useContext(authContext);
+
 
   const { setCurrentFilter } = props;
 
@@ -29,12 +32,12 @@ export default function Header(props) {
     navigate('/events');
   }
   
-  const [inputlocationValue, setLocation] = useState("");
+  
 
-  const { search } = useContext(EventsContext)
+  const { search, location, setLocation } = useContext(EventsContext)
     const onSubmit = (event) => {
        event.preventDefault()
-        search(inputlocationValue)
+        setLocation(inputlocation)
     }
   return (
     <>
@@ -97,8 +100,8 @@ export default function Header(props) {
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
-                value={inputlocationValue}
-                onChange={(event) => setLocation(event.target.value)}
+                value={inputlocation}
+                onChange={(event) => setinputLocation(event.target.value)}
                 
               />
               <Button type="submit"  variant="outline-success">Location</Button>

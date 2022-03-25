@@ -6,6 +6,7 @@ export const EventsContext = React.createContext();
 const EventsProvider = (props) => {
   const [events, setEvents] = useState([]);
   const [searchResults, setSearchResults] = useState([])
+  const [location, setLocation] = useState("")
 
   const baseurl = process.env.REACT_APP_BASEURL;
   
@@ -25,7 +26,7 @@ const EventsProvider = (props) => {
     }
 
   
-  const value = { events, getEvents, search, searchResults }
+  const value = { events, getEvents, search, searchResults, location, setLocation }
   return (
     <EventsContext.Provider value={value}>
         {props.children}
