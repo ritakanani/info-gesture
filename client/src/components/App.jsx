@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext,useEffect } from 'react';
 import Header from './Layout/Header';
 import Footer from './Layout/Footer';
 import Login from './Login';
@@ -9,7 +9,6 @@ import Services from './Services';
 import ServiceForm from './ServiceForm';
 import { Routes, Route, Navigate } from "react-router-dom";
 import {authContext} from './providers/AuthProvider';
-import { useContext, useEffect } from "react";
 import {EventsContext} from './hooks/EventsProvider';
 import './App.scss';
 
@@ -19,6 +18,7 @@ function App() {
   useEffect(() => {
       console.log('searchActive', searchActive)
   }, [searchActive])
+  
   return (
     <div className="App">    
 

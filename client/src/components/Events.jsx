@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 
 
 const Events = (props) => {
-  const {events, getEvents, searchResults }  = useContext(EventsContext)
+  const {events, searchResults }  = useContext(EventsContext)
   const { currentFilter } = props;  
 
  const searchEvents = searchResults.map((item) => {
@@ -25,18 +25,13 @@ const Events = (props) => {
     );
   });
 
-  console.log('data', events);
   
-
-
-  {props.showAll === true && searchResults.length === 0 ? allEvents : searchEvents }
-
-  const allEvents = events
+   const allEvents = events
   .filter((x) => x.category === currentFilter || currentFilter === "")
   .map((item) => {
     var d = new Date(item.date);
     var date = d.toString().split(" ").slice(0, 4).join(" ");
-  return (
+    return (
     <>
           <Card style={{ width: "18rem" }}>
             <Card.Img variant="top" src="" />
@@ -55,10 +50,10 @@ const Events = (props) => {
     
     return (
     <>
+      {props.showAll === true && searchResults.length === 0 ? allEvents : searchEvents }
       <h1>Events</h1>
       <h3>{currentFilter}</h3>
       {allEvents}   
-      {props.showAll === true && searchResults.length === 0 ? allEvents : searchEvents }
     </>
     );
    

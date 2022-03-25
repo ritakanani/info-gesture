@@ -24,7 +24,7 @@ export default function Header(props) {
 
   // function for navigation to /events path in dropdown menu
   const navigate = useNavigate();
-  function handleClick() {
+  const handleClick = () => {
     setCurrentFilter("");
     navigate('/events');
   }
@@ -82,6 +82,7 @@ export default function Header(props) {
                   </Link>
                 </Nav.Link>
                 <NavDropdown title="Events" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="/events">Events</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => handleClick()}>Events</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => setCurrentFilter("Art & Ctafts")}>Art & Crafts</NavDropdown.Item>                  
                   <NavDropdown.Item onClick={() => setCurrentFilter("Yoga")}>Yoga</NavDropdown.Item>
@@ -89,9 +90,7 @@ export default function Header(props) {
                   <NavDropdown.Item onClick={() => setCurrentFilter("Job fair")}>Job fair</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => setCurrentFilter("Webinar")}>Webinar</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => setCurrentFilter("Other")}>Other</NavDropdown.Item>
-                  <NavDropdown.Item href="/events/new">
-                    Event Form
-                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/events/new"> Event Form </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Services" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="/services">Services</NavDropdown.Item>
