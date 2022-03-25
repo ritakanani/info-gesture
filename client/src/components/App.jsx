@@ -9,22 +9,26 @@ import ServiceForm from './ServiceForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route, Navigate } from "react-router-dom";
 import {authContext} from './providers/AuthProvider';
-import { useContext } from "react";
-
+import { useContext, useEffect } from "react";
+import {EventsContext} from './hooks/EventsProvider';
 import './App.scss';
-import EventsProvider from './hooks/EventsProvider';
 
 function App() {
-
+  const { searchActive } = useContext(EventsContext)
+  
+  useEffect(() => {
+      console.log('searchActive', searchActive)
+  }, [searchActive])
   return (
-    <div className="App">
-     <EventsProvider>
+    <div className="App">    
+
       <Header />
-          
+      {searchActive ?           
+      <Events showAll={false}/>  : 
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />     
+        <Route path="/events" element={<Events showAll={true} />} />     
 
         <Route
           path="/events/new"
@@ -46,11 +50,11 @@ function App() {
             }
           />
       
-      </Routes>
-      
-  
+      </Routes>      
+      }
       <Footer />
-      </ EventsProvider> 
+          
+      
     </div> 
   );
 }

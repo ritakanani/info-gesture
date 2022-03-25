@@ -1,4 +1,4 @@
-import React, { useContext,useEffect } from "react";
+import React, { useContext } from "react";
 import {EventsContext} from "./hooks/EventsProvider";
 import { Card, Button } from "react-bootstrap";
 
@@ -26,12 +26,7 @@ const Events = (props) => {
 
   // const [event, setEvent] = useState([]);
 
-  useEffect(() => {
-    
-     getEvents()
 
-    
-  }, []);
 
   const allEvents = events.map((item) => {
     return (
@@ -51,7 +46,7 @@ const Events = (props) => {
 
   return (
     <>
-   {searchResults.length === 0 ? allEvents : searchEvents }
+   {props.showAll === true && searchResults.length === 0 ? allEvents : searchEvents }
 
 
     </>
