@@ -18,26 +18,34 @@ import {EventsContext} from '../hooks/EventsProvider'
 
 
 export default function Header(props) {
-
-  const [inputlocation, setinputLocation] = useState("")
   const { auth, logout } = useContext(authContext);
-
 
   const { setCurrentFilter } = props;
 
   // function for navigation to /events path in dropdown menu
   const navigate = useNavigate();
-  function handleClick() {
+  const handleClick = () => {
     setCurrentFilter("");
     navigate('/events');
-  }  
+  }
+  
+  const [inputlocationValue, setLocation] = useState("");
 
-  const { setLocation } = useContext(EventsContext)
-    const onSubmit = (event) => {
+  const { search, setSearchResults } = useContext(EventsContext)
+
+  const onChange = (event) => {
+    setLocation(event.target.value)
+    
+    if(event.target.value === ''){
+
+      setSearchResults([])   
+    }
+  }
+
+  const onSubmit = (event) => {
        event.preventDefault()
-        setLocation(inputlocation)
-        navigate('/events');
-
+        search(inputlocationValue)
+        console.log('submit', inputlocationValue)
     }
   return (
     <>
@@ -74,6 +82,7 @@ export default function Header(props) {
                   </Link>
                 </Nav.Link>
                 <NavDropdown title="Events" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="/events">Events</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => handleClick()}>Events</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => setCurrentFilter("Art & Ctafts")}>Art & Crafts</NavDropdown.Item>                  
                   <NavDropdown.Item onClick={() => setCurrentFilter("Yoga")}>Yoga</NavDropdown.Item>
@@ -81,9 +90,7 @@ export default function Header(props) {
                   <NavDropdown.Item onClick={() => setCurrentFilter("Job fair")}>Job fair</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => setCurrentFilter("Webinar")}>Webinar</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => setCurrentFilter("Other")}>Other</NavDropdown.Item>
-                  <NavDropdown.Item href="/events/new">
-                    Event Form
-                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/events/new"> Event Form </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Services" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="/services">Services</NavDropdown.Item>
@@ -100,8 +107,8 @@ export default function Header(props) {
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
-                value={inputlocation}
-                onChange={(event) => setinputLocation(event.target.value)}
+                value={inputlocationValue}
+                onChange={onChange}
                 
               />
               <Button type="submit"  variant="outline-success">Location</Button>
