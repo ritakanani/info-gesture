@@ -21,18 +21,18 @@ const sessionStorageValue = JSON.parse(sessionStorage.getItem("loggedIn"));
      const baseurl = process.env.REACT_APP_BASEURL;
      console.log(baseurl);
    
-    axios.post(`${baseurl}/login`, {email, password}).then(() => {
-      setAuth(true);
-      sessionStorage.setItem("loggedIn", "true");
-      navigate('/', { replace: true });   
-      setUser({ email, id, name: "Test User" });
+    axios.post(`${baseurl}/login`, {email, password}).then((response) => {
+      if (response?.data !== "User not found") {
+        setAuth(true);
+        sessionStorage.setItem("loggedIn", "true");
+        navigate('/', { replace: true });   
+        setUser({ email, id, name: "Test User" });
+      }      
     })
     .catch((error) => {
       console.log(error)  
       navigate('/', { replace: true });
-    })
-    
-    
+    })    
   };
 
   const logout = function() {

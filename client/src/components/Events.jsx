@@ -14,8 +14,7 @@ const Events = (props) => {
 
   const allEvents = events
     .filter((x) => (x.category === currentFilter || currentFilter === "") && x.location.toLowerCase().includes(location.toLowerCase()))
-    .map((item) => {
-      console.log("item", item);
+    .map((item) => {      
       var d = new Date(item.date);
       var date = d.toString().split(" ").slice(0, 4).join(" ");
 
