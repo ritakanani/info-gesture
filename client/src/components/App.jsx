@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Header from "./Layout/Header";
 import Footer from "./Layout/Footer";
 import Login from "./Login";
@@ -9,25 +9,31 @@ import Services from "./Services";
 import ServiceForm from "./ServiceForm";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { authContext } from "./providers/AuthProvider";
+import { EventsContext } from "./hooks/EventsProvider";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
-import EventsProvider from "./hooks/EventsProvider";
 
 function App() {
   const [currentFilter, setCurrentFilter] = useState("");
+  const { searchActive } = useContext(EventsContext);
+
+  useEffect(() => {
+    console.log("searchActive", searchActive);
+  }, [searchActive]);
 
   return (
     <div className="App">
-      <EventsProvider>
-        <Header setCurrentFilter={setCurrentFilter} />
-
+      <Header setCurrentFilter={setCurrentFilter} />
+      {searchActive ? (
+        <Events showAll={false} currentFilter={currentFilter} />
+      ) : (
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route
             path="/events"
-            element={<Events currentFilter={currentFilter} />}
+            element={<Events showAll={true} currentFilter={currentFilter} />}
           />
 
           <Route
@@ -50,12 +56,12 @@ function App() {
             }
           />
         </Routes>
-
-        <Footer />
-      </EventsProvider>
+      )}
+      <Footer />
     </div>
   );
 }
+
 function RequireAuth({ children, redirectTo }) {
   const { auth } = useContext(authContext);
 

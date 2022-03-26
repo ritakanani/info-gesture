@@ -71,7 +71,7 @@ const EventForm = () => {
               onChange={(e) => setTopic(e.target.value)}
             >
               <option>Choose...</option>
-              <option>Online</option>
+              <option>Other</option>
               <option>Webinar</option>
               <option>Art & Crafts</option>
               <option>Job fair</option>

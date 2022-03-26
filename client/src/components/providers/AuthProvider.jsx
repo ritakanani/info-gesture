@@ -18,8 +18,10 @@ const sessionStorageValue = JSON.parse(sessionStorage.getItem("loggedIn"));
    console.log("login");
     
     const id = "1234-1234-1234";  // Some random userId
-    // http://localhost:8080/login
-    axios.post('/login', {email, password}).then(() => {
+     const baseurl = process.env.REACT_APP_BASEURL;
+     console.log(baseurl);
+   
+    axios.post(`${baseurl}/login`, {email, password}).then(() => {
       setAuth(true);
       sessionStorage.setItem("loggedIn", "true");
       navigate('/', { replace: true });   
