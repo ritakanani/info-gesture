@@ -1,21 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 
 function ServiceForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const options = [
-    { value: "Toronto", label: "Toronto" },
-    { value: "York", label: "York" },
-    { value: "Etobicoke", label: "Etobicoke" },
-    { value: "Scarborough", label: "Scarborough" },
-    { value: "North York", label: "North York" },
-    { value: "Other", label: "Other" },
-  ];
 
   let navigate = useNavigate();
 
@@ -26,7 +15,6 @@ function ServiceForm() {
       .post("http://localhost:8080/api/services/new", {
         title,
         description,
-        location: selectedOption.value,
       })
       .then((res) => {
         console.log("SUCCESS");
@@ -64,14 +52,6 @@ function ServiceForm() {
             rows="10"
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
-        </div>
-
-        <div class="service_location">
-          <Select
-            defaultValue={selectedOption}
-            onChange={setSelectedOption}
-            options={options}
-          />
         </div>
 
         <button type="submit" value="Submit" onClick={submitForm}>

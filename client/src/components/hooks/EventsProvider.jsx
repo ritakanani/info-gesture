@@ -1,35 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 export const EventsContext = React.createContext();
 
 const EventsProvider = (props) => {
   const [events, setEvents] = useState([]);
-  const [searchResults, setSearchResults] = useState([])
-  const [location, setLocation] = useState("")
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchActive, setSearchActive] = useState(false);
+  const [location, setLocation] = useState("");
 
   const baseurl = process.env.REACT_APP_BASEURL;
-  
-    const search = (searchlocation) => {
 
-      const searchResults = events.filter(item => item.location.toLowerCase().includes(searchlocation.toLowerCase()))
-      setSearchResults(searchResults)  
-    }
+  const search = (searchlocation) => {
+    const searchResults = events.filter((item) =>
+      item.location.toLowerCase().includes(searchlocation.toLowerCase())
+    );
+    setSearchResults(searchResults);
+    console.log("searchResult", searchResults);
+    console.log("searchLocation", searchlocation);
+  };
 
-     const getEvents = () => {
-      axios.get(`${baseurl}/api/events`)
-      .then((response) => {
+  useEffect(() => {
+    searchResults.length > 0 ? setSearchActive(true) : setSearchActive(false);
+    console.log("searchResultsChange", searchResults);
+  }, [searchResults]);
+
+  const getEvents = () => {
+    axios.get(`${baseurl}/api/events`).then((response) => {
       setEvents(response.data);
     });
-    }
-
-  
-  const value = { events, getEvents, search, searchResults, location, setLocation }
+  };
+  const value = {
+    events,
+    search,
+    getEvents,
+    searchResults,
+    searchActive,
+    setSearchResults,
+    location,
+    setLocation,
+  };
   return (
     <EventsContext.Provider value={value}>
-        {props.children}
+      {props.children}
     </EventsContext.Provider>
-  )
-}
+  );
+};
 
 export default EventsProvider;

@@ -12,7 +12,7 @@ ReactDOM.render(
   <AuthProvider>     
    <EventsProvider> 
     <App />    
-    </EventsProvider> 
+   </EventsProvider> 
   </AuthProvider>
   </BrowserRouter>, 
   document.getElementById("root")
