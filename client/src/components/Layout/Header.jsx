@@ -8,23 +8,45 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./Header.scss";
 
-import { useContext } from 'react';
-import {authContext} from '../providers/AuthProvider';
-
+import { useContext, useState } from "react";
+import { authContext } from "../providers/AuthProvider";
+import { EventsContext } from "../hooks/EventsProvider";
 
 export default function Header(props) {
+  const [inputlocation, setinputLocation] = useState("");
   const { auth, logout } = useContext(authContext);
-  console.log(auth)
+
+  const { setCurrentFilter } = props;
+
+  // function for navigation to /events path in dropdown menu
+  const navigate = useNavigate();
+  function handleClick() {
+    setCurrentFilter("");
+    navigate("/events");
+  }
+
+  const { setLocation } = useContext(EventsContext);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    setLocation(inputlocation);
+    navigate("/events");
+  };
   return (
     <>
       <Container fluid className="d-flex justify-content-end my-1">
-      { !auth ?  <Link className="nav-menu mr-1" to="/login">
-          Login
-        </Link> : <Button className="nav-menu mr-1" onClick={logout}>Logout </Button>  } 
+        {!auth ? (
+          <Link className="nav-menu mr-1" to="/login">
+            Login
+          </Link>
+        ) : (
+          <Button className="nav-menu mr-1" onClick={logout}>
+            Logout{" "}
+          </Button>
+        )}
 
         <span className="mr-1">|</span>
         <Link
@@ -36,7 +58,7 @@ export default function Header(props) {
       </Container>
       <Navbar bg="light" expand="lg" className="py-4 border mb-5">
         <Container fluid>
-          <Navbar.Brand className="nav-logo" href="#">
+          <Navbar.Brand className="nav-logo" href="/">
             Info Gesture
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -54,7 +76,33 @@ export default function Header(props) {
                   </Link>
                 </Nav.Link>
                 <NavDropdown title="Events" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="/events">Events</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleClick()}>
+                    Events
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    onClick={() => setCurrentFilter("Art & Ctafts")}
+                  >
+                    Art & Crafts
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setCurrentFilter("Yoga")}>
+                    Yoga
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    onClick={() => setCurrentFilter("Family Gathering")}
+                  >
+                    Family Gathering
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    onClick={() => setCurrentFilter("Job fair")}
+                  >
+                    Job fair
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setCurrentFilter("Webinar")}>
+                    Webinar
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setCurrentFilter("Other")}>
+                    Other
+                  </NavDropdown.Item>
                   <NavDropdown.Item href="/events/new">
                     Event Form
                   </NavDropdown.Item>
@@ -67,14 +115,19 @@ export default function Header(props) {
                 </NavDropdown>
               </div>
             </Container>
-            <Form className="d-flex">
+
+            <Form className="d-flex" onSubmit={onSubmit}>
               <FormControl
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                value={inputlocation}
+                onChange={(event) => setinputLocation(event.target.value)}
               />
-              <Button variant="outline-success">Location</Button>
+              <Button type="submit" variant="outline-success">
+                Location
+              </Button>
             </Form>
           </Navbar.Collapse>
         </Container>

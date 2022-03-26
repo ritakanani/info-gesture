@@ -1,9 +1,37 @@
 -- test seeds for services
-INSERT INTO services (user_id, title, description)
-  VALUES (2, 'Childcare for afterschool', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper');
-INSERT INTO services (user_id, title, description)
-  VALUES (2, 'BEST HOUSE CLEANING', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper');
-INSERT INTO services (user_id, title, description)
-  VALUES (2, 'Foodbank','Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper');
-INSERT INTO services (user_id, title, description)
-  VALUES (2, 'Tutor for kids','Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper');
+insert into services (user_id, title, description) values (1, 'Childcare for afterschool', 'In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.');
+insert into services (user_id, title, description) values (1, 'BEST HOUSE CLEANING', 'Nam tristique tortor eu pede.');
+insert into services (user_id, title, description) values (1, 'Foodbank', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.');
+insert into services (user_id, title, description) values (1, 'Rath-Koepp', 'In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.');
+insert into services (user_id, title, description) values (1, 'Tutor!', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.');
+insert into services (user_id, title, description) values (1, 'English as a second language', 'Vivamus tortor.');
+insert into services (user_id, title, description) values (2, 'Prepared meal delivery', 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.');
+insert into services (user_id, title, description) values (2, 'Schoen and Sons', 'Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.');
+insert into services (user_id, title, description) values (2, 'Emmerich, Jakubowski and Mueller', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.');
+insert into services (user_id, title, description) values (2, 'Ruecker, Morar and Koss', 'Nunc rhoncus dui vel sem. Sed sagittis.');
+insert into services (user_id, title, description) values (2, 'McDermott LLC', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
+insert into services (user_id, title, description) values (2, 'Lueilwitz-Brakus', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.');
+insert into services (user_id, title, description) values (3, 'Frami and Sons', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.');
+insert into services (user_id, title, description) values (3, 'Bednar Group', 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.');
+insert into services (user_id, title, description) values (3, 'Lindgren-Zulauf', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
+insert into services (user_id, title, description) values (3, 'Skiles, Rosenbaum and Gibson', 'Maecenas pulvinar lobortis est.');
+insert into services (user_id, title, description) values (3, 'Mayer, Kuhn and Ernser', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
+insert into services (user_id, title, description) values (3, 'Mayert-Hoppe', 'Duis mattis egestas metus. Aenean fermentum.');
+insert into services (user_id, title, description) values (4, 'Murazik Group', 'Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.');
+insert into services (user_id, title, description) values (4, 'Erdman and Sons', 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.');
+insert into services (user_id, title, description) values (4, 'Ledner, Hagenes and Hills', 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.');
+insert into services (user_id, title, description) values (4, 'Gibson, Lang and Zboncak', 'Morbi non lectus.');
+insert into services (user_id, title, description) values (4, 'Prohaska Group', 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.');
+insert into services (user_id, title, description) values (4, 'Crooks-Murray', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
+insert into services (user_id, title, description) values (5, 'Boehm, Jenkins and Strosin', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus.');
+insert into services (user_id, title, description) values (5, 'Reichel-Schuppe', 'Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.');
+insert into services (user_id, title, description) values (5, 'O''Connell and Sons', 'Fusce posuere felis sed lacus.');
+insert into services (user_id, title, description) values (5, 'Jones-Carter', 'Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
+insert into services (user_id, title, description) values (5, 'Kuhlman, Harber and Rice', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.');
+insert into services (user_id, title, description) values (5, 'VonRueden, Koepp and Feest', 'Morbi vel lectus in quam fringilla rhoncus.');
+insert into services (user_id, title, description) values (6, 'Wisozk Group', 'Sed ante. Vivamus tortor.');
+insert into services (user_id, title, description) values (6, 'Marquardt, Greenfelder and Schimmel', 'Nullam varius.');
+insert into services (user_id, title, description) values (6, 'Klein, Durgan and Miller', 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
+insert into services (user_id, title, description) values (6, 'Gleichner and Sons', 'Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.');
+insert into services (user_id, title, description) values (6, 'Daniel Inc', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
+insert into services (user_id, title, description) values (6, 'Franecki-Wisozk', 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.');
