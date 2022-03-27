@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button, Img } from "react-bootstrap";
 import { authContext } from "./providers/AuthProvider";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ const EventForm = () => {
   const [location, setLocation] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [img, setImg] = useState("");
 
   const { auth } = useContext(authContext);
   let navigate = useNavigate();
@@ -53,6 +54,17 @@ const EventForm = () => {
           // action="/api/create-event/new"
           // method="post"
         >
+          <Form.Group>
+          <Form.Label>Img</Form.Label>
+          <Form.Control 
+          name="image_url"
+          type="text"
+          placeholder="Photos"
+          onChange={(e) => setImg(e.target.value)}
+          />
+            
+          </Form.Group>
+       
           <Form.Group className="mb-3" controlId="evnts-title">
             <Form.Label>Title</Form.Label>
             <Form.Control
