@@ -9,46 +9,46 @@ export default function Home(props) {
   const { events, getEvents } = useContext(EventsContext);
 
   useEffect(() => {
-    getEvents();    
+    getEvents();
   }, []);
 
   const formatDate = (d) => {
     return d.toString().split(" ").slice(0, 4).join(" ");
-  };
+  }  
 
-  const allEvents = events
-    .filter((item) => {
-      var d = new Date(item.date);
-      return formatDate(d) === formatDate(new Date());
-    })
-    .map((item) => {
-      var d = new Date(item.date);
-      return (
-        <>
-          <Col>
-            <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src="" />
-              <Card.Body>
-                <Card.Title>{item.title}</Card.Title>
-                <Card.Text>
-                  {formatDate(d)} •{item.location}
-                </Card.Text>
-                <Card.Text>{item.description}</Card.Text>
-                <Button variant="primary">Message</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </>
-      );
-    });
-
+  const allEvents = events.filter((item) => {
+    var d = new Date(item.date); 
+    return formatDate(d) === formatDate(new Date());  
+  })
+  .map((item) => {
+    var d = new Date(item.date);
+    return (
+      <>
+        <Col>
+          <Card style={{ width: "18rem" }}>
+            <Card.Img variant="top" src="" />
+            <Card.Body>
+              <Card.Title>{item.title}</Card.Title>
+              <Card.Text>
+                {formatDate(d)} •{item.location}
+              </Card.Text>
+              <Card.Text>{item.description}</Card.Text>
+              <Button variant="primary">Message</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </>
+    );
+  });
   return (
     <>
       <Container className="main-title mb-5">
         <h2 className="fw-bold">Friendly Events & Services</h2>
       </Container>
       <Container fluid className="bg-secondary d-flex justify-content-center">
-        <Row className="main-cards d-flex align-items-center">{allEvents}</Row>
+        <Row className="main-cards d-flex align-items-center">
+          {allEvents}
+        </Row>
       </Container>
       <Container fluid className="bg-secondary d-flex justify-content-center">
         <Button>Learn more </Button>

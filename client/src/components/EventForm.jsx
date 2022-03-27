@@ -111,7 +111,7 @@ const EventForm = () => {
             >
               <option>Choose...</option>
               <option>Toronto</option>
-              <option>York</option>
+              <option>Mississauga</option>
               <option>Etobicoke</option>
               <option>Scarborough</option>
               <option>North York</option>
