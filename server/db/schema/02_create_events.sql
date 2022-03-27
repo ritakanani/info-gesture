@@ -8,5 +8,6 @@ CREATE TABLE events (
   description VARCHAR(255) NOT NULL,
   location VARCHAR(255) NOT NULL,
   date DATE,
-  time TIME
+  time TIME,
+  image_url VARCHAR (255) NOT NULL
 );
