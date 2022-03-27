@@ -9,7 +9,7 @@ export default function Home(props) {
   const { events, getEvents } = useContext(EventsContext);
 
   useEffect(() => {
-    getEvents();
+    getEvents();    
   }, []);
 
   const formatDate = (d) => {
@@ -56,7 +56,7 @@ export default function Home(props) {
       <Container>
         <Row>
           <Col>
-            <Image />
+            <Image src="../images/britt-gaiser-events.jpg" thumbnail/>            
           </Col>
           <Col>
             <h3>Events</h3>
@@ -66,7 +66,7 @@ export default function Home(props) {
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat.
             </p>
-            <Button>Create an Event</Button>
+            <Button href="/events/new">Create an Event</Button>
           </Col>
         </Row>
       </Container>
@@ -80,10 +80,10 @@ export default function Home(props) {
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat.
             </p>
-            <Button>Provide Service</Button>
+            <Button href="/services/new">Provide Service</Button>
           </Col>
           <Col>
-            <Image />
+            <Image src="../images/services.jpg" thumbnail/>
           </Col>
         </Row>
       </Container>

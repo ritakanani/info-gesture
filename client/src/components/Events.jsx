@@ -7,12 +7,13 @@ const Events = (props) => {
   const { currentFilter } = props;
 
   const searchEvents = searchResults.map((item) => {
+    console.log("item1", item);
     var d = new Date(item.date);
     var date = d.toString().split(" ").slice(0, 4).join(" ");
     return (
       <>
         <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="" />
+          <Card.Img variant="top" src={item.image_url} />
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
             <Card.Text>
@@ -33,12 +34,13 @@ const Events = (props) => {
   const allEvents = events
     .filter((x) => x.category === currentFilter || currentFilter === "")
     .map((item) => {
+      console.log("item2", item)
       var d = new Date(item.date);
       var date = d.toString().split(" ").slice(0, 4).join(" ");
       return (
         <>
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="" />
+            <Card.Img variant="top" src={item.image_url} />
             <Card.Body>
               <Card.Title>{item.title}</Card.Title>
               <Card.Text>
