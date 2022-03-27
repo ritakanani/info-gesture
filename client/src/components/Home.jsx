@@ -1,10 +1,52 @@
+<<<<<<< HEAD
 import React from "react";
+=======
+import React, { useEffect, useContext } from "react";
+>>>>>>> master
 
 import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
+import { EventsContext } from "./hooks/EventsProvider";
 
 import "./Home.scss";
 
 export default function Home(props) {
+<<<<<<< HEAD
+=======
+  const { events, getEvents } = useContext(EventsContext);
+
+  useEffect(() => {
+    getEvents();
+  }, []);
+
+  const formatDate = (d) => {
+    return d.toString().split(" ").slice(0, 4).join(" ");
+  }  
+
+  const allEvents = events.filter((item) => {
+    var d = new Date(item.date); 
+    return formatDate(d) === formatDate(new Date());  
+  })
+  .map((item) => {
+    var d = new Date(item.date);
+    return (
+      <>
+        <Col>
+          <Card style={{ width: "18rem" }}>
+            <Card.Img variant="top" src="" />
+            <Card.Body>
+              <Card.Title>{item.title}</Card.Title>
+              <Card.Text>
+                {formatDate(d)} •{item.location}
+              </Card.Text>
+              <Card.Text>{item.description}</Card.Text>
+              <Button variant="primary">Message</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </>
+    );
+  });
+>>>>>>> master
   return (
     <>
       <Container className="main-title mb-5">
@@ -12,45 +54,7 @@ export default function Home(props) {
       </Container>
       <Container fluid className="bg-secondary d-flex justify-content-center">
         <Row className="main-cards d-flex align-items-center">
-          <Col>
-            <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src="" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src="" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src="" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-          </Col>
+          {allEvents}
         </Row>
       </Container>
       <Container fluid className="bg-secondary d-flex justify-content-center">
