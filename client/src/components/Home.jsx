@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import React from "react";
+=======
 import React, { useEffect, useContext } from "react";
+>>>>>>> master
 
 import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import { EventsContext } from "./hooks/EventsProvider";
@@ -6,6 +10,8 @@ import { EventsContext } from "./hooks/EventsProvider";
 import "./Home.scss";
 
 export default function Home(props) {
+<<<<<<< HEAD
+=======
   const { events, getEvents } = useContext(EventsContext);
 
   useEffect(() => {
@@ -40,6 +46,7 @@ export default function Home(props) {
       </>
     );
   });
+>>>>>>> master
   return (
     <>
       <Container className="main-title mb-5">
