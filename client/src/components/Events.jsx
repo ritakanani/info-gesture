@@ -5,9 +5,6 @@ import { EventsContext } from "./hooks/EventsProvider";
 import { Card, Button } from "react-bootstrap";
 import { Map } from "./Map";
 import { MapProvider } from "./hooks/MapProvider";
-// import mapboxgl from 'mapbox-gl';
-// mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-
 
 
 const Events = (props) => {

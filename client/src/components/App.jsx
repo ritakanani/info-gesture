@@ -29,9 +29,9 @@ function App() {
       {searchActive ?           
       <Events showAll={false} currentFilter={currentFilter}/>  : 
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events showAll={true} currentFilter={currentFilter} />} />     
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/events" element={<Events showAll={true} currentFilter={currentFilter} />} />     
 
         <Route
           path="/events/new"

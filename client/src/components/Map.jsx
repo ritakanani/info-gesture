@@ -7,8 +7,8 @@ export const Map = () => {
   const mapDispatch = useDispatchMap();
 
   const [mapViewport, setMapViewport] = useState({
-    height: "100vh",
-    width: "100wh",
+    height: "60vh",
+    width: "100%",
     longitude: -79.411079,
     latitude: 43.761539,
     zoom: 8

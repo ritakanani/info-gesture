@@ -12,14 +12,22 @@ const EventsProvider = (props) => {
 
   const baseurl = process.env.REACT_APP_BASEURL;
 
-  const search = (searchlocation) => {
-
-    const searchResults = events.filter(item => item.location.toLowerCase().includes(searchlocation.toLowerCase()))
+  const search = () => {
+      if(location === ''){
+        setSearchResults([])
+        return
+      }
+    const searchResults = events.filter(item => item.location.toLowerCase().includes(location.toLowerCase()))
     setSearchResults(searchResults)
     console.log('searchResult',searchResults );
-    console.log('searchLocation',searchlocation );   
+    console.log('location',location );   
 
   }
+
+  useEffect(() => {
+      search()
+      
+  },[location])
 
   useEffect(() => {
     searchResults.length > 0 ? setSearchActive(true) : setSearchActive(false)

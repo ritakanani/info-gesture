@@ -19,43 +19,51 @@ import {EventsContext} from '../hooks/EventsProvider'
 
 export default function Header(props) {
 
-  // const [inputlocation, setinputLocation] = useState("")
+  //  const [inputlocation, setinputLocation] = useState("")
   const { auth, logout } = useContext(authContext);
 
   const { setCurrentFilter } = props;
-
+  // console.log('set',setCurrentFilter)
   // function for navigation to /events path in dropdown menu
   const navigate = useNavigate();
-  const handleClick = () => {
-    setCurrentFilter("");
-    navigate('/events');
-  }
-  
-  const [inputlocationValue, setinputLocation] = useState("");
 
-  const { search, setSearchResults } = useContext(EventsContext)
+  const { search, setSearchResults, setLocation } = useContext(EventsContext)
+
+  
+  const [inputlocationValue, setinputLocationValue] = useState("");
 
   const onChange = (event) => {
-    setinputLocation(event.target.value)
+    setinputLocationValue(event.target.value)
       if(event.target.value === ''){
 
       setSearchResults([])   
     }
   }
 
-  const onSubmitSearch = (event) => {
-       event.preventDefault()
-        search(inputlocationValue)        
-        console.log('submit', inputlocationValue)
-  }
-
-  // const { setLocation } = useContext(EventsContext)
-  //   const onSubmit = (event) => {
+  // const onSubmitSearch = (event) => {
   //      event.preventDefault()
-  //       setLocation(inputlocation)
-  //       navigate('/events');
+  //       search(inputlocationValue)        
+  //       console.log('submit', inputlocationValue)
+  // }
 
-  //   }
+  
+    const onSubmitSearch = (event) => {
+       event.preventDefault()
+        setLocation(inputlocationValue)
+        navigate('/events');
+    }
+
+    const resetLocation = () => {
+      setLocation('')
+      setinputLocationValue('')
+      
+    }
+
+    const handleClick = (clickEvent) => {
+      resetLocation()
+      navigate('/events');
+      setCurrentFilter(clickEvent);
+    }
 
   return (
     <>
@@ -87,19 +95,22 @@ export default function Header(props) {
             <Container className="d-flex justify-content-end">
               <div className="d-flex">
                 <Nav.Link>
-                  <Link className="nav-menu" to="/">
+                  <Link className="nav-menu" to="/" onClick={resetLocation}>
                     Home
                   </Link>
                 </Nav.Link>
                 <NavDropdown title="Events" id="navbarScrollingDropdown">
               
-                  <NavDropdown.Item onClick={() => handleClick()}>Events</NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setCurrentFilter("Art & Ctafts")}>Art & Crafts</NavDropdown.Item>                  
-                  <NavDropdown.Item onClick={() => setCurrentFilter("Yoga")}>Yoga</NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setCurrentFilter("Family Gathering")}>Family Gathering</NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setCurrentFilter("Job fair")}>Job fair</NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setCurrentFilter("Webinar")}>Webinar</NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setCurrentFilter("Other")}>Other</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleClick("")}>Events</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => {
+                    handleClick("Art & Ctafts")
+                   
+                  }}>Art & Crafts </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleClick("Yoga")}>Yoga</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleClick("Family Gathering")}>Family Gathering</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleClick("Job fair")}>Job fair</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleClick("Webinar")}>Webinar</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleClick("Other")}>Other</NavDropdown.Item>
                   <NavDropdown.Item href="/events/new"> Event Form </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Services" id="navbarScrollingDropdown">
