@@ -36,6 +36,7 @@ const EventForm = () => {
         location,
         date,
         time,
+        img
       })
       .then((res) => {
         console.log("SUCCESS", res);

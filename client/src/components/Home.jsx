@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React from "react";
-=======
 import React, { useEffect, useContext } from "react";
->>>>>>> master
 
 import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import { EventsContext } from "./hooks/EventsProvider";
@@ -10,8 +6,6 @@ import { EventsContext } from "./hooks/EventsProvider";
 import "./Home.scss";
 
 export default function Home(props) {
-<<<<<<< HEAD
-=======
   const { events, getEvents } = useContext(EventsContext);
 
   useEffect(() => {
@@ -32,7 +26,7 @@ export default function Home(props) {
       <>
         <Col>
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="" />
+            <Card.Img variant="top" src={item.image_url} />
             <Card.Body>
               <Card.Title>{item.title}</Card.Title>
               <Card.Text>
@@ -46,7 +40,6 @@ export default function Home(props) {
       </>
     );
   });
->>>>>>> master
   return (
     <>
       <Container className="main-title mb-5">
