@@ -18,6 +18,8 @@ import {EventsContext} from '../hooks/EventsProvider'
 
 
 export default function Header(props) {
+
+  // const [inputlocation, setinputLocation] = useState("")
   const { auth, logout } = useContext(authContext);
 
   const { setCurrentFilter } = props;
@@ -29,24 +31,32 @@ export default function Header(props) {
     navigate('/events');
   }
   
-  const [inputlocationValue, setLocation] = useState("");
+  const [inputlocationValue, setinputLocation] = useState("");
 
   const { search, setSearchResults } = useContext(EventsContext)
 
   const onChange = (event) => {
-    setLocation(event.target.value)
-    
-    if(event.target.value === ''){
+    setinputLocation(event.target.value)
+      if(event.target.value === ''){
 
       setSearchResults([])   
     }
   }
 
-  const onSubmit = (event) => {
+  const onSubmitSearch = (event) => {
        event.preventDefault()
-        search(inputlocationValue)
+        search(inputlocationValue)        
         console.log('submit', inputlocationValue)
-    }
+  }
+
+  // const { setLocation } = useContext(EventsContext)
+  //   const onSubmit = (event) => {
+  //      event.preventDefault()
+  //       setLocation(inputlocation)
+  //       navigate('/events');
+
+  //   }
+
   return (
     <>
       <Container fluid className="d-flex justify-content-end my-1">
@@ -82,7 +92,7 @@ export default function Header(props) {
                   </Link>
                 </Nav.Link>
                 <NavDropdown title="Events" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="/events">Events</NavDropdown.Item>
+              
                   <NavDropdown.Item onClick={() => handleClick()}>Events</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => setCurrentFilter("Art & Ctafts")}>Art & Crafts</NavDropdown.Item>                  
                   <NavDropdown.Item onClick={() => setCurrentFilter("Yoga")}>Yoga</NavDropdown.Item>
@@ -101,7 +111,7 @@ export default function Header(props) {
               </div>
             </Container>
 
-            <Form className="d-flex" onSubmit={onSubmit}>
+            <Form className="d-flex" onSubmit={onSubmitSearch}>
               <FormControl
                 type="search"
                 placeholder="Search"

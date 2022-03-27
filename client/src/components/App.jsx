@@ -10,9 +10,13 @@ import ServiceForm from './ServiceForm';
 import { Routes, Route, Navigate } from "react-router-dom";
 import {authContext} from './providers/AuthProvider';
 import {EventsContext} from './hooks/EventsProvider';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
 function App() {
+
+  const [ currentFilter, setCurrentFilter ] = useState("");
   const { searchActive } = useContext(EventsContext)
   
   useEffect(() => {
@@ -21,14 +25,13 @@ function App() {
   
   return (
     <div className="App">    
-
-      <Header />
+      <Header setCurrentFilter={setCurrentFilter} />
       {searchActive ?           
-      <Events showAll={false}/>  : 
+      <Events showAll={false} currentFilter={currentFilter}/>  : 
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events showAll={true} />} />     
+        <Route path="/events" element={<Events showAll={true} currentFilter={currentFilter} />} />     
 
         <Route
           path="/events/new"

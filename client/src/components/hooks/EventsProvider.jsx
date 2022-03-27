@@ -7,6 +7,8 @@ const EventsProvider = (props) => {
   const [events, setEvents] = useState([]);
   const [searchResults, setSearchResults] = useState([])
   const [searchActive, setSearchActive] = useState(false)
+  const [location, setLocation] = useState("")
+  
 
   const baseurl = process.env.REACT_APP_BASEURL;
 
@@ -14,7 +16,8 @@ const EventsProvider = (props) => {
 
     const searchResults = events.filter(item => item.location.toLowerCase().includes(searchlocation.toLowerCase()))
     setSearchResults(searchResults)
-
+    console.log('searchResult',searchResults );
+    console.log('searchLocation',searchlocation );   
 
   }
 
@@ -23,7 +26,6 @@ const EventsProvider = (props) => {
     console.log('searchResultsChange', searchResults)
   }, [searchResults])
 
-
   const getEvents = () => {
     axios.get(`${baseurl}/api/events`)
       .then((response) => {
@@ -31,13 +33,8 @@ const EventsProvider = (props) => {
       });
 
   }
-
-  useEffect(() => {
-    getEvents()
-  }, []);
-
-
-  const value = { events, getEvents, search, searchResults, searchActive, setSearchResults }
+  // const value = { events,  search, getEvents, searchResults, searchActive, setSearchResults, location, setLocation, mapContainer, mapboxgl, map}
+  const value = { events,  search, getEvents, searchResults, searchActive, setSearchResults,  location, setLocation}
   return (
     <EventsContext.Provider value={value}>
       {props.children}
