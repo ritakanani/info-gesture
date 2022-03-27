@@ -9,7 +9,7 @@ export default function Home(props) {
   const { events, getEvents } = useContext(EventsContext);
 
   useEffect(() => {
-    getEvents();    
+    getEvents();
   }, []);
 
   const formatDate = (d) => {
