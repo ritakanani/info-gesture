@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 
 import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import { EventsContext } from "./hooks/EventsProvider";
+import Mailto from "./MailLink";
 
 import "./Home.scss";
 
@@ -9,7 +10,7 @@ export default function Home(props) {
   const { events, getEvents } = useContext(EventsContext);
 
   useEffect(() => {
-    getEvents();    
+    getEvents();
   }, []);
 
   const formatDate = (d) => {
@@ -34,7 +35,8 @@ export default function Home(props) {
                   {formatDate(d)} •{item.location}
                 </Card.Text>
                 <Card.Text>{item.description}</Card.Text>
-                <Button variant="primary">Message</Button>
+                {/* <Button variant="primary">Message</Button> */}
+                <Mailto email={item.email} title={item.title} />
               </Card.Body>
             </Card>
           </Col>
@@ -56,7 +58,7 @@ export default function Home(props) {
       <Container>
         <Row>
           <Col>
-            <Image src="../images/britt-gaiser-events.jpg" thumbnail/>            
+            <Image src="../images/britt-gaiser-events.jpg" thumbnail />
           </Col>
           <Col>
             <h3>Events</h3>
@@ -83,7 +85,7 @@ export default function Home(props) {
             <Button href="/services/new">Provide Service</Button>
           </Col>
           <Col>
-            <Image src="../images/services.jpg" thumbnail/>
+            <Image src="../images/services.jpg" thumbnail />
           </Col>
         </Row>
       </Container>
