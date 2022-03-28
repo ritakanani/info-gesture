@@ -43,7 +43,7 @@ const Events = (props) => {
       <>       
 
         <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="" />
+          <Card.Img variant="top" src={item.image_url} />
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
             <Card.Text>

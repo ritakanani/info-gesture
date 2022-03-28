@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 function ServiceForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [image_url, setImg] = useState("");
 
   let navigate = useNavigate();
 
@@ -15,6 +16,7 @@ function ServiceForm() {
       .post("http://localhost:8080/api/services/new", {
         title,
         description,
+        image_url
       })
       .then((res) => {
         console.log("SUCCESS");
@@ -29,10 +31,23 @@ function ServiceForm() {
   return (
     <div>
       <form action="/services/new" method="post">
-        <div class="service_title">
+        <div>
+          <label for="image_url">
+            Add photos:
+          </label>
+          <input
+            id="photos"            
+            value={image_url}
+            type="text"
+            name="image_url"
+            placeholder="Image"
+            onChange={(e) => setImg(e.target.value)}
+          ></input>
+        </div>
+        <div>
           <label for="service_title">Title</label>
           <input
-            id="title"
+            id="title"            
             value={title}
             type="text"
             name="service_title"
@@ -41,10 +56,10 @@ function ServiceForm() {
           ></input>
         </div>
 
-        <div class="service_description">
+        <div>
           <label for="service_description">Description</label>
           <textarea
-            id="description"
+            id="description"            
             value={description}
             placeholder="Description"
             name="service_description"
