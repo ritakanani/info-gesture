@@ -6,6 +6,7 @@ import { Container, Form, Button, Img } from "react-bootstrap";
 function ServiceForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [image_url, setImg] = useState("");
 
   let navigate = useNavigate();
 
@@ -16,6 +17,7 @@ function ServiceForm() {
       .post("http://localhost:8080/api/services/new", {
         title,
         description,
+        image_url,
       })
       .then((res) => {
         console.log("SUCCESS");

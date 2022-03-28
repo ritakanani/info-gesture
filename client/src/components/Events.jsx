@@ -1,14 +1,18 @@
 import React, { useContext, useEffect } from "react";
+// import React, { useContext,useState, useEffect } from "react";
+
 import { EventsContext } from "./hooks/EventsProvider";
 import { Card, Button } from "react-bootstrap";
 import Mailto from "./MailLink";
+import { Map } from "./Map";
+import { MapProvider } from "./hooks/MapProvider";
 
 const Events = (props) => {
   const { events, getEvents, searchResults } = useContext(EventsContext);
+
   const { currentFilter } = props;
 
   const searchEvents = searchResults.map((item) => {
-    console.log("item1", item);
     var d = new Date(item.date);
     var date = d.toString().split(" ").slice(0, 4).join(" ");
     return (
@@ -59,9 +63,12 @@ const Events = (props) => {
 
   return (
     <>
+      <MapProvider>
+        <Map />
+      </MapProvider>
+
       <h1>Events</h1>
       <h3>{currentFilter}</h3>
-
       {props.showAll === true && searchResults.length === 0
         ? allEvents
         : searchEvents}
