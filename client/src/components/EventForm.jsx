@@ -36,6 +36,7 @@ const EventForm = () => {
         location,
         date,
         time,
+        img
       })
       .then((res) => {
         console.log("SUCCESS", res);
@@ -110,7 +111,7 @@ const EventForm = () => {
             >
               <option>Choose...</option>
               <option>Toronto</option>
-              <option>York</option>
+              <option>Mississauga</option>
               <option>Etobicoke</option>
               <option>Scarborough</option>
               <option>North York</option>
