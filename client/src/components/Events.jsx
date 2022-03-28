@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { EventsContext } from "./hooks/EventsProvider";
 import { Card, Button } from "react-bootstrap";
+import Mailto from "./MailLink";
 
 const Events = (props) => {
   const { events, getEvents, searchResults } = useContext(EventsContext);
@@ -20,7 +21,8 @@ const Events = (props) => {
               {date} •{item.location}
             </Card.Text>
             <Card.Text>{item.description}</Card.Text>
-            <Button variant="primary">Message</Button>
+            {/* <Button variant="primary">Message</Button> */}
+            <Mailto email={item.email} title={item.title} />
           </Card.Body>
         </Card>
       </>
@@ -34,7 +36,7 @@ const Events = (props) => {
   const allEvents = events
     .filter((x) => x.category === currentFilter || currentFilter === "")
     .map((item) => {
-      console.log("item2", item)
+      console.log("item2", item);
       var d = new Date(item.date);
       var date = d.toString().split(" ").slice(0, 4).join(" ");
       return (
@@ -47,7 +49,8 @@ const Events = (props) => {
                 {date} •{item.location}
               </Card.Text>
               <Card.Text>{item.description}</Card.Text>
-              <Button variant="primary">Message</Button>
+              {/* <Button variant="primary">Message</Button> */}
+              <Mailto email={item.email} title={item.title} />
             </Card.Body>
           </Card>
         </>
