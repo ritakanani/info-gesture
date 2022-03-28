@@ -56,16 +56,15 @@ const EventForm = () => {
           // method="post"
         >
           <Form.Group>
-          <Form.Label>Img</Form.Label>
-          <Form.Control 
-          name="image_url"
-          type="text"
-          placeholder="Photos"
-          onChange={(e) => setImg(e.target.value)}
-          />
-            
+            <Form.Label>Img</Form.Label>
+            <Form.Control
+              name="image_url"
+              type="text"
+              placeholder="Photos"
+              onChange={(e) => setImg(e.target.value)}
+            />
           </Form.Group>
-       
+
           <Form.Group className="mb-3" controlId="evnts-title">
             <Form.Label>Title</Form.Label>
             <Form.Control

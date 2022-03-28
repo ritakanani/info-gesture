@@ -12,8 +12,8 @@ module.exports = (db) => {
         if (data.rows.length > 0) {
           res.json(data.rows);
         } else {
-        res.json("User not found");
-      }
+          res.json("User not found");
+        }
       })
       .catch((error) => {
         res.json(error);

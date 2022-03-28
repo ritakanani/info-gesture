@@ -17,6 +17,7 @@ const Events = (props) => {
     var date = d.toString().split(" ").slice(0, 4).join(" ");
     return (
       <>
+      
         <Card style={{ width: "18rem" }}>
           <Card.Img variant="top" src={item.image_url} />
           <Card.Body>
@@ -67,6 +68,7 @@ const Events = (props) => {
       <h1>Events</h1>
       <h3>{currentFilter}</h3>
       {props.showAll === true && searchResults.length === 0 ? allEvents : searchEvents}
+
     </>
   );
 
