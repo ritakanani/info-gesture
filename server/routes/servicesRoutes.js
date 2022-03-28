@@ -14,6 +14,7 @@ module.exports = (db) => {
     // const { user_id } = req.params;
 
     const { title, description } = req.body;
+
     console.log(req.body);
 
     const query = `INSERT INTO services (user_id, title, description) VALUES ($1, $2, $3) RETURNING * `;

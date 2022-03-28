@@ -10,7 +10,8 @@ module.exports = (db) => {
   });
 
   router.post("/new", (req, res) => {
-    const { topic, title, description, location, date, time, image_url } = req.body;
+    const { topic, title, description, location, date, time, image_url } =
+      req.body;
 
     let query = `
     INSERT INTO events (title, category, description, location, date, time, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *
