@@ -51,9 +51,7 @@ const EventForm = () => {
     <div>
       <Container className="d-flex justify-content-center">
         <Form
-          className="event-form"
-          // action="/api/create-event/new"
-          // method="post"
+          className="event-form" // action="/api/create-event/new" // method="post"
         >
           <Form.Group>
             <Form.Label>Img</Form.Label>

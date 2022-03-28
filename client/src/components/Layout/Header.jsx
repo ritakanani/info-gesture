@@ -68,13 +68,13 @@ export default function Header(props) {
   return (
     <>
       <Container fluid className="d-flex justify-content-end my-1">
-      { !auth ?  <Link className="nav-menu mr-1" to="/login">
+      { !auth ?  <Link className="nav-menu px-2" to="/login">
           Login
-        </Link> : <Button className="nav-menu mr-1" onClick={logout}>Logout </Button>  } 
+        </Link> : <Button className="nav-logout" onClick={logout}>Logout</Button>  } 
 
-        <span className="mr-1">|</span>
+        <span className="mx-1">|</span>
         <Link
-          className="nav-menu text-light bg-secondary rounded-pill px-1"
+          className="nav-menu px-2"
           to="/register"
         >
           Register
@@ -95,7 +95,7 @@ export default function Header(props) {
             <Container className="d-flex justify-content-end">
               <div className="d-flex">
                 <Nav.Link>
-                  <Link className="nav-menu" to="/" onClick={resetLocation}>
+                  <Link className="nav-menu h5" to="/" onClick={resetLocation}>
                     Home
                   </Link>
                 </Nav.Link>
@@ -103,7 +103,7 @@ export default function Header(props) {
               
                   <NavDropdown.Item onClick={() => handleClick("")}>Events</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => {
-                    handleClick("Art & Ctafts")
+                    handleClick("Art & Crafts")
                    
                   }}>Art & Crafts </NavDropdown.Item>
                   <NavDropdown.Item onClick={() => handleClick("Yoga")}>Yoga</NavDropdown.Item>
