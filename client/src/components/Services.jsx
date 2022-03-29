@@ -109,7 +109,7 @@ const Services = () => {
             </div>
           </div>
 
-          <div className="col  full-card">
+          <div className="col full-card">
             <div className="card">
               <img
                 src="images/fitness.jpg"
