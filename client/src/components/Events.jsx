@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 // import React, { useContext,useState, useEffect } from "react";
 
 import { EventsContext } from "./hooks/EventsProvider";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button,Container,Row } from "react-bootstrap";
 import Mailto from "./MailLink";
 import { Map } from "./Map";
 import { MapProvider } from "./hooks/MapProvider";
