@@ -16,7 +16,7 @@ const Services = () => {
   const allServices = service.map((item) => {
     return (
       <>
-        <Card style={{ width: "18rem" }}>
+        <Card className="sevices-cards">
           <Card.Img variant="top" src={item.image_url} />
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
@@ -108,7 +108,7 @@ const Services = () => {
             </div>
           </div>
 
-          <div className="col  full-card">
+          <div className="col full-card">
             <div className="card">
               <img
                 src="images/fitness.jpg"
@@ -161,7 +161,7 @@ const Services = () => {
          
         <div className="contact-tag">
           <h3>Community Contact </h3>
-          <i class="fa fa-phone-square button-icon-left"></i> Phone: 512-842-1111 |  <i class="fa fa-phone-square button-icon-left"></i> Email: info@community.com 
+          <i class="fa fa-phone-square button-icon-left"></i> Phone: 512-842-1111 | <i class="fa fa-phone-square button-icon-left"></i> Email: info@community.com
         </div>
       </div>
     </>

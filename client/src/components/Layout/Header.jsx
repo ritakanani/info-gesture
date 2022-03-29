@@ -95,10 +95,7 @@ export default function Header(props) {
                 <NavDropdown title="Events" id="navbarScrollingDropdown">
               
                   <NavDropdown.Item onClick={() => handleClick("")}>Events</NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => {
-                    handleClick("Art & Crafts")
-                   
-                  }}>Art & Crafts </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleClick("Art & Crafts")}>Art & Crafts </NavDropdown.Item>
                   <NavDropdown.Item onClick={() => handleClick("Yoga")}>Yoga</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => handleClick("Family Gathering")}>Family Gathering</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => handleClick("Job fair")}>Job fair</NavDropdown.Item>

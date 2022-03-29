@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button, Img } from "react-bootstrap";
 
 function ServiceForm() {
   const [title, setTitle] = useState("");
@@ -31,8 +31,18 @@ function ServiceForm() {
 
   return (
     <Container className="d-flex justify-content-center">
-      <Form className="event-form  w-20" action="/services/new" method="post">
+      <Form className="event-form" action="/services/new" method="post">
         <Form.Group className="mb-3" controlId="service-title">
+        <Form.Label>Image</Form.Label>
+        <Form.Control
+            id="image"
+            value={title}
+            type="text"
+            name="service_image"
+            placeholder="Image"
+            onChange={(e) => setTitle(e.target.value)}
+          ></Form.Control>
+
           <Form.Label>What type of service?</Form.Label>
           <Form.Control
             id="title"
@@ -49,13 +59,14 @@ function ServiceForm() {
           <Form.Control
             id="description"
             value={description}
-            name="event_description"
+            placeholder="Description"
+            name="service_description"
+            cols="30"
+            rows="10"
             as="textarea"
-            rows={3}
             onChange={(e) => setDescription(e.target.value)}
           ></Form.Control>
         </Form.Group>
-
         <Button variant="secondary" type="submit" onClick={submitForm}>
           Create
         </Button>
