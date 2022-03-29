@@ -19,12 +19,11 @@ import {EventsContext} from '../hooks/EventsProvider'
 
 export default function Header(props) {
 
-  //  const [inputlocation, setinputLocation] = useState("")
+  
   const { auth, logout } = useContext(authContext);
 
   const { setCurrentFilter } = props;
-  // console.log('set',setCurrentFilter)
-  // function for navigation to /events path in dropdown menu
+
   const navigate = useNavigate();
 
   const { search, setSearchResults, setLocation } = useContext(EventsContext)
@@ -39,12 +38,6 @@ export default function Header(props) {
       setSearchResults([]);   
     }
   }
-
-  // const onSubmitSearch = (event) => {
-  //      event.preventDefault()
-  //       search(inputlocationValue)        
-  //       console.log('submit', inputlocationValue)
-  // }
 
   
     const onSubmitSearch = (event) => {
@@ -80,7 +73,7 @@ export default function Header(props) {
           Register
         </Link>
       </Container>
-      <Navbar bg="light" expand="lg" className="py-4 border mb-5">
+      <Navbar bg="light" expand="lg" className="py-4 border">
         <Container fluid>
           <Navbar.Brand className="nav-logo" href="/">
             Info Gesture

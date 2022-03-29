@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Form, Button, Img } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 
 function ServiceForm() {
   const [title, setTitle] = useState("");
@@ -31,7 +31,7 @@ function ServiceForm() {
 
   return (
     <Container className="d-flex justify-content-center">
-      <Form className="event-form" action="/services/new" method="post">
+      <Form className="event-form  w-20" action="/services/new" method="post">
         <Form.Group className="mb-3" controlId="service-title">
           <Form.Label>What type of service?</Form.Label>
           <Form.Control

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./Services.scss";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import Mailto from "./MailLink";
 
 const Services = () => {
@@ -21,7 +21,6 @@ const Services = () => {
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
             <Card.Text>{item.description}</Card.Text>
-            {/* <Button variant="primary">Message</Button> */}
             <Mailto email={item.email} title={item.title} />
           </Card.Body>
         </Card>
@@ -31,8 +30,7 @@ const Services = () => {
 
   return (
     <>
-      {/* <div>Service</div>
-       */}
+      
       <div className="service">
         <div className="title-page">
           <h1>Services</h1>
@@ -160,55 +158,11 @@ const Services = () => {
           {allServices}
         </div>  
 
-          {/* <div className="service">
-          <div className="service-image">
-            <img src="images/government-resources.jpg" className="card-img" alt="government-resources" />
-            <div className="service-text">
-              <h5 className="card-title">Employment Services</h5>
-              <p className="card-text">Peterborough</p>
-              <div className='chat-button'>
-               <Button variant="info">Chat</Button>
-               <i class="fa fa-heart" aria-hidden="true"></i>
-              </div>           
-             
-            </div>
-          </div>
-        </div>  
-        <div className="service">
-          <div className="service-image">
-            <img src="images/government-resources.jpg" className="card-img" alt="government-resources" />
-            <div className="service-text">
-              <h5 className="card-title">Meal delivery services</h5>
-              <p className="card-text">Toronto</p>
-              <div className='chat-button'>
-               <Button variant="info">Chat</Button>
-               <i class="fa fa-heart" aria-hidden="true"></i>
-              </div>           
-             
-            </div>
-          </div>
-        </div>  
-
-        <div className="service">
-          <div className="service-image">
-            <img src="images/government-resources.jpg" className="card-img" alt="government-resources" />
-            <div className="service-text">
-              <h5 className="card-title">Law and safety</h5>
-              <p className="card-text">Alberta</p>
-              <div className='chat-button'>
-               <Button variant="info">Chat</Button>
-               <i class="fa fa-heart" aria-hidden="true"></i>
-              </div>           
-             
-            </div>
-          </div>
-        </div>   */}       
-
+         
         <div className="contact-tag">
           <h3>Community Contact </h3>
-          <i class="fa fa-phone-square button-icon-left"></i>Phone: 512-842-1111
-          <i class="fa fa-phone-square button-icon-left"></i>Email:
-          info@community.com
+          <i class="fa fa-phone-square button-icon-left"></i> Phone: 512-842-1111 
+          <p> <i class="fa fa-phone-square button-icon-left"></i> Email: info@community.com</p> 
         </div>
       </div>
     </>

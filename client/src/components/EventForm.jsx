@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Container, Form, Button, Img } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import { authContext } from "./providers/AuthProvider";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -51,7 +51,7 @@ const EventForm = () => {
     <div>
       <Container className="d-flex justify-content-center">
         <Form
-          className="event-form" // action="/api/create-event/new" // method="post"
+          className="event-form"        
         >
           <Form.Group>
             <Form.Label>Img</Form.Label>

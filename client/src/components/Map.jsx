@@ -7,7 +7,7 @@ export const Map = () => {
   const mapDispatch = useDispatchMap();
 
   const [mapViewport, setMapViewport] = useState({
-    height: "60vh",
+    height: "80vh",
     width: "100%",
     longitude: -79.411079,
     latitude: 43.761539,
