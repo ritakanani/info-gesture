@@ -5,7 +5,7 @@ import { EventsContext } from "./hooks/EventsProvider";
 import { Card, Row, Button, Container } from "react-bootstrap";
 import { Map } from "./Map";
 import { MapProvider } from "./hooks/MapProvider";
-
+import Mailto from "./MailLink";
 import "./Events.scss";
 
 const Events = (props) => {
@@ -30,7 +30,7 @@ const Events = (props) => {
             <Card.Text>{item.description}</Card.Text>          
             
           </Card.Body>
-          <div className="py-3"><Button variant="primary">Message</Button></div>
+          <div className="py-3"><Mailto email={item.email} title={item.title} /></div>
         </Card>
       </>
     );
@@ -57,7 +57,7 @@ const Events = (props) => {
             <Card.Text>{item.description}</Card.Text>
                      
           </Card.Body>
-          <div className="py-3"><Button variant="primary">Message</Button></div>
+          <div className="py-3"><Mailto email={item.email} title={item.title} /></div>
         </Card>
       </>
     );
