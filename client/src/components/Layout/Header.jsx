@@ -19,12 +19,11 @@ import {EventsContext} from '../hooks/EventsProvider'
 
 export default function Header(props) {
 
-  //  const [inputlocation, setinputLocation] = useState("")
+  
   const { auth, logout } = useContext(authContext);
 
   const { setCurrentFilter } = props;
-  // console.log('set',setCurrentFilter)
-  // function for navigation to /events path in dropdown menu
+
   const navigate = useNavigate();
 
   const { search, setSearchResults, setLocation } = useContext(EventsContext)
@@ -39,12 +38,6 @@ export default function Header(props) {
       setSearchResults([]);   
     }
   }
-
-  // const onSubmitSearch = (event) => {
-  //      event.preventDefault()
-  //       search(inputlocationValue)        
-  //       console.log('submit', inputlocationValue)
-  // }
 
   
     const onSubmitSearch = (event) => {
@@ -68,19 +61,19 @@ export default function Header(props) {
   return (
     <>
       <Container fluid className="d-flex justify-content-end my-1">
-      { !auth ?  <Link className="nav-menu mr-1" to="/login">
+      { !auth ?  <Link className="nav-menu px-2" to="/login">
           Login
-        </Link> : <Button className="nav-menu mr-1" onClick={logout}>Logout </Button>  } 
+        </Link> : <Button className="nav-logout" onClick={logout}>Logout</Button>  } 
 
-        <span className="mr-1">|</span>
+        <span className="mx-1">|</span>
         <Link
-          className="nav-menu text-light bg-secondary rounded-pill px-1"
+          className="nav-menu px-2"
           to="/register"
         >
           Register
         </Link>
       </Container>
-      <Navbar bg="light" expand="lg" className="py-4 border mb-5">
+      <Navbar bg="light" expand="lg" className="py-4 border">
         <Container fluid>
           <Navbar.Brand className="nav-logo" href="/">
             Info Gesture
@@ -95,7 +88,7 @@ export default function Header(props) {
             <Container className="d-flex justify-content-end">
               <div className="d-flex">
                 <Nav.Link>
-                  <Link className="nav-menu" to="/" onClick={resetLocation}>
+                  <Link className="nav-menu h5" to="/" onClick={resetLocation}>
                     Home
                   </Link>
                 </Nav.Link>
@@ -103,7 +96,7 @@ export default function Header(props) {
               
                   <NavDropdown.Item onClick={() => handleClick("")}>Events</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => {
-                    handleClick("Art & Ctafts")
+                    handleClick("Art & Crafts")
                    
                   }}>Art & Crafts </NavDropdown.Item>
                   <NavDropdown.Item onClick={() => handleClick("Yoga")}>Yoga</NavDropdown.Item>

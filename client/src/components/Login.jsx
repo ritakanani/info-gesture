@@ -21,7 +21,7 @@ export default function Login() {
   };
 
   return (
-    <Container className="d-flex justify-content-center">
+    <Container className="form-container d-flex justify-content-center">
 
       <Form onSubmit={onSubmit} className="login-form" >
 

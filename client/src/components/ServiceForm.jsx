@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Container, Form, Button } from "react-bootstrap";
 
 function ServiceForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [image_url, setImg] = useState("");
 
   let navigate = useNavigate();
 
@@ -15,6 +17,7 @@ function ServiceForm() {
       .post("http://localhost:8080/api/services/new", {
         title,
         description,
+        image_url,
       })
       .then((res) => {
         console.log("SUCCESS");
@@ -27,38 +30,37 @@ function ServiceForm() {
   };
 
   return (
-    <div>
-      <form action="/services/new" method="post">
-        <div class="service_title">
-          <label for="service_title">Title</label>
-          <input
+    <Container className="d-flex justify-content-center">
+      <Form className="event-form  w-20" action="/services/new" method="post">
+        <Form.Group className="mb-3" controlId="service-title">
+          <Form.Label>What type of service?</Form.Label>
+          <Form.Control
             id="title"
             value={title}
             type="text"
             name="service_title"
             placeholder="Title"
             onChange={(e) => setTitle(e.target.value)}
-          ></input>
-        </div>
+          ></Form.Control>
+        </Form.Group>
 
-        <div class="service_description">
-          <label for="service_description">Description</label>
-          <textarea
+        <Form.Group className="mb-3" controlId="service-description">
+          <Form.Label>Service details</Form.Label>
+          <Form.Control
             id="description"
             value={description}
-            placeholder="Description"
-            name="service_description"
-            cols="30"
-            rows="10"
+            name="event_description"
+            as="textarea"
+            rows={3}
             onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-        </div>
+          ></Form.Control>
+        </Form.Group>
 
-        <button type="submit" value="Submit" onClick={submitForm}>
+        <Button variant="secondary" type="submit" onClick={submitForm}>
           Create
-        </button>
-      </form>
-    </div>
+        </Button>
+      </Form>
+    </Container>
   );
 }
 

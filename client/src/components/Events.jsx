@@ -2,9 +2,11 @@ import React, {  useContext, useEffect } from "react";
 // import React, { useContext,useState, useEffect } from "react";
 
 import { EventsContext } from "./hooks/EventsProvider";
-import { Card, Button } from "react-bootstrap";
+import { Card, Row, Button, Container } from "react-bootstrap";
 import { Map } from "./Map";
 import { MapProvider } from "./hooks/MapProvider";
+
+import "./Events.scss";
 
 const Events = (props) => {
  
@@ -18,16 +20,17 @@ const Events = (props) => {
     return (
       <>
       
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={item.image_url} />
+      <Card className="e-card mx-3">
+          <Card.Img variant="top mt-4" src={item.image_url} />
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
             <Card.Text>
               {date} •{item.location}
             </Card.Text>
-            <Card.Text>{item.description}</Card.Text>
-            <Button variant="primary">Message</Button>
+            <Card.Text>{item.description}</Card.Text>          
+            
           </Card.Body>
+          <div className="py-3"><Button variant="primary">Message</Button></div>
         </Card>
       </>
     );
@@ -43,33 +46,41 @@ const Events = (props) => {
     return (      
       <>       
 
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="" />
+        <Card className="e-card mx-3">
+          <Card.Img variant="top mt-4" src={item.image_url} />
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
             <Card.Text>
               {date} •{item.location}
+             
             </Card.Text>
             <Card.Text>{item.description}</Card.Text>
-            <Button variant="primary">Message</Button>
+                     
           </Card.Body>
+          <div className="py-3"><Button variant="primary">Message</Button></div>
         </Card>
       </>
     );
   });
 
   return (
-    <>
+    <div className='events'>
 
       <MapProvider>
          <Map />
       </MapProvider>
-      
-      <h1>Events</h1>
-      <h3>{currentFilter}</h3>
-      {props.showAll === true && searchResults.length === 0 ? allEvents : searchEvents}
 
-    </>
+      <div className='title-page'> <h1>Events</h1>  </div>
+     
+     <div className="text-center mt-5">  <h3>{currentFilter}</h3> </div>
+  
+      <Container className="events-cards mt-5">
+        <Row xs={1} md={3} className="g-5 justify-content-center">
+            {props.showAll === true && searchResults.length === 0 ? allEvents : searchEvents}
+        </Row>
+      
+      </Container>
+    </div>
   );
 
 };
