@@ -3,7 +3,8 @@ const router = require("express").Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    const command = "SELECT * FROM events";
+    const command =
+      "SELECT users.email, events.user_id, events.id, events.title, events.description, events.date, events.time, events.image_url FROM events JOIN users ON users.id = user_id";
     db.query(command).then((data) => {
       res.json(data.rows);
     });

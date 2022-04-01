@@ -5,7 +5,7 @@ const Mailto = ({ email, title, ...props }) => {
   return (
     <a href={`mailto:${email}?subject=InfoGesture Inquiry: ${title || ""}`}>
       {props.children}
-      <BsFillEnvelopeFill />
+      <BsFillEnvelopeFill size={24} />
     </a>
   );
 };

@@ -1,11 +1,9 @@
-const express = require("express");
 const router = require("express").Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    const command =
-      `SELECT users.email, services.user_id, services.id, services.title, services.description, services.image_url FROM services JOIN users ON users.id = user_id`;
-      
+    const command = `SELECT users.email, services.user_id, services.id, services.title, services.description, services.image_url FROM services JOIN users ON users.id = user_id`;
+
     db.query(command).then((data) => {
       res.json(data.rows);
     });
