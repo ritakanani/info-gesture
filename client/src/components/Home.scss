@@ -9,9 +9,14 @@
 }
 
 .main-cards {
-  background-color: #FAF9F7
+  background-color: #FAF9F7;
 }
 
 .main-body {
   margin-top: 60px;
+}
+
+.cards-list {
+  box-shadow: 0 16px 28px 0 rgb(134 131 134 / 65%),
+    0 25px 55px 0 rgb(146 140 142 / 32%);  
 }

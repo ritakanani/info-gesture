@@ -27,7 +27,7 @@ export default function Header(props) {
   // function for navigation to /events path in dropdown menu
   const navigate = useNavigate();
 
-  const { search, setSearchResults, setLocation } = useContext(EventsContext)
+  const { setSearchResults, setLocation } = useContext(EventsContext)
 
   
   const [inputlocationValue, setinputLocationValue] = useState("");
@@ -95,11 +95,11 @@ export default function Header(props) {
             <Container className="d-flex justify-content-end">
               <div className="d-flex">
                 <Nav.Link>
-                  <Link className="nav-menu h5" to="/" onClick={resetLocation}>
+                  <Link className="nav-menu nav-items" to="/" onClick={resetLocation}>
                     Home
                   </Link>
                 </Nav.Link>
-                <NavDropdown title="Events" id="navbarScrollingDropdown">
+                <NavDropdown className="nav-items" title="Events" id="navbarScrollingDropdown">
               
                   <NavDropdown.Item onClick={() => handleClick("")}>Events</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => {
@@ -108,12 +108,12 @@ export default function Header(props) {
                   }}>Art & Crafts </NavDropdown.Item>
                   <NavDropdown.Item onClick={() => handleClick("Yoga")}>Yoga</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => handleClick("Family Gathering")}>Family Gathering</NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => handleClick("Job fair")}>Job fair</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleClick("Job fair")}>Job Fair</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => handleClick("Webinar")}>Webinar</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => handleClick("Other")}>Other</NavDropdown.Item>
                   <NavDropdown.Item href="/events/new"> Event Form </NavDropdown.Item>
                 </NavDropdown>
-                <NavDropdown title="Services" id="navbarScrollingDropdown">
+                <NavDropdown className="nav-items" title="Services" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="/services">Services</NavDropdown.Item>
                   <NavDropdown.Item href="/services/new">
                     Service Form

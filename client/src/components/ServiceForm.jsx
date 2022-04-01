@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Form, Button, Img } from "react-bootstrap";
+import "./ServiceForm.scss";
 
 function ServiceForm() {
   const [title, setTitle] = useState("");
@@ -17,7 +17,7 @@ function ServiceForm() {
       .post("http://localhost:8080/api/services/new", {
         title,
         description,
-        image_url
+        image_url,
       })
       .then((res) => {
         console.log("SUCCESS");
@@ -30,49 +30,60 @@ function ServiceForm() {
   };
 
   return (
-    <div>
+    <div className="container text-center service-form">
       <form action="/services/new" method="post">
-        <div>
-          <label for="image_url">
-            Add photos:
-          </label>
-          <input
-            id="photos"            
-            value={image_url}
-            type="text"
-            name="image_url"
-            placeholder="Image"
-            onChange={(e) => setImg(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label for="service_title">Title</label>
-          <input
-            id="title"            
-            value={title}
-            type="text"
-            name="service_title"
-            placeholder="Title"
-            onChange={(e) => setTitle(e.target.value)}
-          ></input>
-        </div>
+        <div className="d-flex flex-column align-items-start">
+          <div class="d-flex flex-column align-items-start ">
+            <label for="image_url" class="h5 mb-3">
+              Add photo
+            </label>
+            <input
+              id="photos"
+              type="text"
+              name="image_url"
+              placeholder="Image"
+              value={image_url}
+              onChange={(e) => setImg(e.target.value)}
+            ></input>
+          </div>
+          <div class="d-flex flex-column align-items-start">
+            <label for="service_title" class="h5 my-3">
+              Title
+            </label>
+            <input
+              id="title"
+              type="text"
+              name="service_title"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            ></input>
+          </div>
 
-        <div>
-          <label for="service_description">Description</label>
-          <textarea
-            id="description"            
-            value={description}
-            placeholder="Description"
-            name="service_description"
-            cols="30"
-            rows="10"
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-        </div>
+          <div class="d-flex flex-column align-items-start">
+            <label for="service_description" class="h5 my-3">
+              Description
+            </label>
+            <textarea
+              id="description"
+              placeholder="Description"
+              name="service_description"
+              cols="19"
+              rows="5"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
+          </div>
 
-        <button type="submit" value="Submit" onClick={submitForm}>
-          Create
-        </button>
+          <button
+            className="my-3"
+            type="submit"
+            value="Submit"
+            onClick={submitForm}
+          >
+            Create
+          </button>
+        </div>
       </form>
     </div>
   );

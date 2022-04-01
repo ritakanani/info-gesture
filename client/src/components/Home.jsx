@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 
 import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import { EventsContext } from "./hooks/EventsProvider";
+import Mailto from "./MailLink";
 
 import "./Home.scss";
 
@@ -25,17 +26,20 @@ export default function Home(props) {
       var d = new Date(item.date);
       return (
         <>
-          <Col>
-            <Card style={{ width: "18rem" }}>
+          <Col className="py-2">
+            <Card className="cards-list" style={{ width: "20rem", minHeight: "28.75rem", height: "auto" }}>
               <Card.Img variant="top" src={item.image_url} />
               <Card.Body>
                 <Card.Title>{item.title}</Card.Title>
                 <Card.Text>
                   {formatDate(d)} •{item.location}
                 </Card.Text>
-                <Card.Text>{item.description}</Card.Text>
-                <Button variant="primary">Message</Button>
+                <Card.Text>{item.description.substring(0, 40)}</Card.Text>
+                {/* <Button variant="primary">Message</Button> */}
               </Card.Body>
+              <div className="p-3 h3">
+                <Mailto email={item.email} title={item.title} />
+              </div>
             </Card>
           </Col>
         </>
@@ -48,7 +52,7 @@ export default function Home(props) {
       </Container>
       <div className="main-cards mb-5">
         <Container fluid className="d-flex justify-content-center py-5">
-          <Row className="cards-list d-flex align-items-center">
+          <Row className="d-flex align-items-center">
             {allEvents}
           </Row>
         </Container>

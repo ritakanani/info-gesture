@@ -13,7 +13,7 @@ const EventForm = () => {
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  // const [time, setTime] = useState("");
   const [img, setImg] = useState("");
 
   const { auth } = useContext(authContext);
@@ -35,7 +35,7 @@ const EventForm = () => {
         description,
         location,
         date,
-        time,
+        // time,
         img
       })
       .then((res) => {
@@ -91,7 +91,7 @@ const EventForm = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Example textarea</Form.Label>
+            <Form.Label>Textarea</Form.Label>
             <Form.Control
               name="event_description"
               as="textarea"
@@ -126,14 +126,14 @@ const EventForm = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="event-time">
+          {/* <Form.Group className="mb-3" controlId="event-time">
             <Form.Label>Time</Form.Label>
             <Form.Control
               type="time"
               name="time"
               onChange={(e) => setTime(e.target.value)}
             />
-          </Form.Group>
+          </Form.Group> */}
 
           <Button variant="secondary" type="submit" onClick={submitForm}>
             Create Event
